@@ -1,0 +1,52 @@
+@import "../components/productCard";
+@import "../components/filterSidebar";
+
+.product-page {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.product-page {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-sidebar {
+  width: 320px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  font-size: 17px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+  z-index: 1;
+}
+
+.product-list__container {
+  flex: 1;
+}
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+@media (max-width: 768px) {
+  .product-page {
+    flex-direction: column;
+  }
+
+  .filter-sidebar__container {
+    position: relative;
+    top: unset;
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

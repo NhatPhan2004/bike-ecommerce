@@ -1,0 +1,152 @@
+//Home New
+.home-news {
+  padding: 40px 0;
+  background: #fffbec;
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 32px;
+    color: #333;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+  }
+
+  &__card {
+    background: #e5e5e5;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 280px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  &__headline {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px;
+    line-height: 1.4;
+    color: #333;
+  }
+
+  &__meta {
+    font-size: 13px;
+    padding: 0 16px;
+    color: #777;
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+  }
+
+  &__excerpt {
+    font-size: 14px;
+    padding: 0 16px;
+    color: #444;
+    margin-bottom: 8px;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    padding: 8px 16px 16px;
+    color: #6ac5f1;
+    font-weight: 500;
+    transition: text-decoration 0.2s ease; // Smooth transition
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 1.5px; // Control underline thickness
+      text-underline-offset: 3px; // Space between text and underline
+    }
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    &__list {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__card {
+      width: 90%;
+    }
+
+    &__headline,
+    &__meta,
+    &__excerpt,
+    &__link {
+      text-align: center;
+    }
+  }
+}
+
+//New Detail
+.news-detail {
+  padding: 40px 20px;
+  background-color: #fffbec;
+  font-family: "Poppins", sans-serif;
+
+  &__container {
+    max-width: 850px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 12px;
+  }
+
+  &__meta {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+  }
+
+  &__image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 24px;
+  }
+
+  &__content {
+    line-height: 1.8;
+    font-size: 17px;
+    color: #333;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+    }
+
+    h2,
+    h3 {
+      margin-top: 30px;
+      color: #444;
+    }
+  }
+}

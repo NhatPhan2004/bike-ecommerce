@@ -1,0 +1,22 @@
+// Base
+@import "./base/reset.scss";
+@import "./base/base.scss";
+@import "./base/variables.scss";
+
+//Components
+@import "./components/buttons.scss";
+@import "./components/cards.scss";
+@import "./components/filter.scss";
+@import "./components/productSlider.scss"; //Layout
+@import "./layouts/header.scss";
+@import "./layouts/footer.scss";
+//Login & Register
+@import "./layouts/LoginRegister.scss";
+
+//Page
+@import "./pages/home.scss";
+@import "./pages/products.scss";
+@import "./pages/cart.scss";
+@import "./pages/news.scss";
+@import "./pages/flashsale.scss";
+@import "./pages/contact.scss";

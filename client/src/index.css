@@ -1,0 +1,38 @@
+/* index.css - global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fffbec;
+}
+
+header {
+  background: #fffbec;
+  padding: 1rem;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+main {
+  /* padding: 2rem; */
+}
+
+footer {
+  margin-bottom: 0;
+  background: #333;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
