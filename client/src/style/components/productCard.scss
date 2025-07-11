@@ -1,11 +1,11 @@
 .product-card {
   display: flex;
-  margin-top: 50px;
+  // margin-top: 100px;
   border: 1px solid #e2dede;
   border-radius: 8px;
   padding: 10px;
   flex-direction: column;
-  width: 330px;
+  width: 320px;
   height: 100%;
   transition: transform 0.8s ease, border 0.8s ease, box-shadow 0.8s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

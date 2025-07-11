@@ -1,52 +1,112 @@
-@import "../components/productCard";
-@import "../components/filterSidebar";
+$breakpoints: (
+  "small": 576px,
+  "medium": 768px,
+  "large": 992px,
+  "xlarge": 1200px,
+  "xxlarge": 1440px,
+  "ultra": 1920px,
+);
 
 .product-page {
-  max-width: 1300px;
+  max-width: 1330px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 5px;
+  display: flex;
+  gap: 20px;
+  position: relative;
+  overflow: visible;
+  margin-bottom: 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 }
 
-.product-page {
-  display: flex;
-  align-items: flex-start;
-  gap: 30px;
-  flex-wrap: wrap;
+.product-FilterSidebar {
+  margin-top: 83px;
+  line-height: 1.35;
 }
 
 .filter-sidebar {
-  width: 320px;
-  padding: 20px;
-  background-color: #f9f9f9;
+  position: sticky;
+  top: 83px;
+  width: 290px;
+  padding: 15px;
+  background-color: #e9e8e8;
   border: 1px solid #fff;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-size: 17px;
-  position: sticky;
-  top: 20px;
-  height: fit-content;
-  z-index: 1;
+
+  @media (max-width: 768px) {
+    position: relative;
+    top: unset;
+    width: 100%;
+    margin-bottom: 20px;
+    max-height: none;
+  }
 }
 
 .product-list__container {
   flex: 1;
+  min-width: 0;
 }
 
 .product-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-@media (max-width: 768px) {
-  .product-page {
-    flex-direction: column;
-  }
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
 
-  .filter-sidebar__container {
-    position: relative;
-    top: unset;
-    max-width: 100%;
-    width: 100%;
-    margin-bottom: 20px;
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Icon
+.product-list__line {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 85px;
+  width: 1005px;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    height: 2.5px;
+    background-color: #bab9b9;
+    opacity: 0.6;
+  }
+}
+
+.product-list__icon {
+  display: inline-flex;
+  margin: 0;
+  width: 54px;
+  height: 54px;
+  margin: 0 10px;
+  animation: spin 3s linear infinite;
+  transform-origin: center;
+  position: relative;
+  z-index: 2;
+  will-change: transform;
+  align-items: center;
+  justify-content: center;
+}
+
+.wheel-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: black;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

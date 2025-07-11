@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import axios from "axios";
 import "../../../../style/components/productSlider.scss";
 import productService from "../../../../services/productService";
+import apiRoutes from "../../../../api";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -32,7 +32,7 @@ const ProductSlider = () => {
     ],
   };
 
-  const displayedProducts = products.slice(0, 3);
+  // const displayedProducts = products.slice(0, 3);
 
   return (
     <div className="product-slider">
@@ -51,9 +51,10 @@ const ProductSlider = () => {
                 <div className="product-slider__card">
                   <img
                     className="product-slider__card-image"
-                    src={`http://localhost:5000/uploads/images/${item.hinhanh}`}
+                    src={`${apiRoutes.imageBase}${apiRoutes.image.product}${item.hinhanh}`}
                     alt={item.tenxe}
                   />
+
                   <div className="product-slider__card-rating">★★★★☆</div>
                   <h4 className="product-slider__card-name">{item.tenxe}</h4>
                   <p className="product-slider__card-price">

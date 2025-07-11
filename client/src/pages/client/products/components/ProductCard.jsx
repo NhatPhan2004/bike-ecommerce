@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { getBaseUrl } from "../../../../utils/apiBaseUrl";
+import React, { useState } from "react";
 import "../../../../style/components/productCard.scss";
+import apiRoutes from "../../../../api";
 
 const ProductCard = ({ product }) => {
-  const [baseUrl, setBaseUrl] = useState("");
   const [errorCount, setErrorCount] = useState(0);
-
-  useEffect(() => {
-    getBaseUrl().then(setBaseUrl);
-  }, []);
 
   if (!product || !product.hinhanh) {
     return (
@@ -16,22 +11,20 @@ const ProductCard = ({ product }) => {
     );
   }
 
-  const getImageUrl = () => {
+  const getImageUrl = (ext = "jpg") => {
     const baseName = product.hinhanh.split(".")[0];
-    return `${baseUrl}/uploads/images/${baseName}.jpg`;
+    return `${apiRoutes.imageBase}/${baseName}.${ext}`;
   };
 
   const handleImageError = (e) => {
-    const baseName = product.hinhanh.split(".")[0];
-
     if (errorCount === 0) {
-      e.target.src = `${baseUrl}/uploads/images/${baseName}.png`; // lần 1 fallback sang .png
+      e.target.src = getImageUrl("png");
       setErrorCount(1);
     } else if (errorCount === 1) {
-      e.target.src = `${baseUrl}/uploads/images/placeholder.png`; // lần 2 fallback placeholder
+      e.target.src = `${apiRoutes.imageBase}/placeholder.png`;
       setErrorCount(2);
     } else {
-      e.target.onerror = null; // chặn lặp vô hạn
+      e.target.onerror = null;
     }
   };
 
@@ -41,14 +34,13 @@ const ProductCard = ({ product }) => {
       data-brand={product.thuonghieu}
       data-color={`Màu: ${product.mausac}`}
       data-price={product.giaban}
-      data-delivery="Miễn phí giao hàng, Giao hàng nhanh 4h"
     >
       <a href={`/products/${product.bike_id}`} className="product-card__link">
         <div className="product-card__image">
           <img
-            src={getImageUrl()}
+            src={`${apiRoutes.imageBase}${apiRoutes.image.product}${product.hinhanh}`}
             onError={handleImageError}
-            alt={product.tenxe || "Ảnh sản phẩm"}
+            alt={product.tenxe || "Image Products"}
           />
         </div>
         <div className="product-card__brand">{product.thuonghieu}</div>

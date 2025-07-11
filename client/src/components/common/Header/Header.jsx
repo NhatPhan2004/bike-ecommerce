@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import logo from "../../../assets/images/logo.png";
+import logo2 from "../../../assets/images/logo2.png";
 import LoginRegister from "../../../pages/client/auth/LoginRegister";
 import "../../../style/layouts/header.scss";
 
@@ -23,7 +23,7 @@ const Header = () => {
         <div className="header__row-flex">
           <div className="header__left">
             <NavLink to="/" className="header__logo">
-              <img src={logo} alt="logo" />
+              <img src={logo2} alt="logo" />
             </NavLink>
           </div>
 

@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaCalendarAlt } from "react-icons/fa";
 import "../../../style/pages/news.scss";
+import postService from "../../../services/postService";
+import apiRoutes from "../../../api";
+
 const HomeNewsSection = () => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/api/posts/home")
-      .then((res) => {
-        console.log("Kết quả API:", res.data);
-        setPosts(res.data);
-      })
+    postService
+      .getHomePosts()
+      .then((res) => setPosts(res.data))
       .catch((err) => {
         console.error("Lỗi khi lấy dữ liệu bài viết:", err);
       });
@@ -26,7 +25,7 @@ const HomeNewsSection = () => {
           posts.map((post) => (
             <div className="home-news__card" key={post.id}>
               <img
-                src={`http://localhost:5000${post.image}`}
+                src={`${apiRoutes.imageBase}${post.image}`}
                 alt={post.title}
                 className="home-news__image"
               />

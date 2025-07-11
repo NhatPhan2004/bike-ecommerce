@@ -1,0 +1,150 @@
+.
+└── bike-ecommerce/
+    ├── client/
+    │   ├── public/
+    │   │   └── index.js
+    │   └── src/
+    │       ├── api/
+    │       │   ├── routes/
+    │       │   │   ├── authRoutes.js
+    │       │   │   └── productRoutes.js
+    │       │   ├── axiosInstance.js
+    │       │   ├── index.js
+    │       │   ├── newsApi.js
+    │       │   └── productApi.js
+    │       ├── assets/ 
+    │       │   └── images/
+    │       │       └── index.jsx
+    │       ├── components/
+    │       │   ├── admin/
+    │       │   ├── common/
+    │       │   │   ├── Footer/
+    │       │   │   │   └── Footer.jsx
+    │       │   │   ├── Header/
+    │       │   │   │   └── Header.jsx
+    │       │   │   ├── Sidebar/
+    │       │   │   │   └── Sidebar.jsx
+    │       │   │   └── UI/
+    │       │   │       └── Button.jsx
+    │       │   └── layout/
+    │       │       └── MainLayout.jsx
+    │       ├── contexts/
+    │       │   └── BaseUrlContext.js
+    │       ├── hooks/
+    │       ├── pages/
+    │       │   ├── admin/
+    │       │   │   ├── Customers/
+    │       │   │   ├── Dashboard/
+    │       │   │   ├── Orders/
+    │       │   │   ├── Products/
+    │       │   │   └── Statistics/
+    │       │   └── client/
+    │       │       ├── auth/
+    │       │       │   ├── LoginRegister.jsx
+    │       │       │   └── Logout.jsx
+    │       │       ├── cart/
+    │       │       │   ├── Cart.jsx
+    │       │       │   ├── PaymentPage.jsx
+    │       │       │   └── ShippingInfo.jsx
+    │       │       ├── contact/
+    │       │       │   └── Contact.jsx
+    │       │       ├── flashsale/
+    │       │       │   └── Flashsale.jsx
+    │       │       ├── home/
+    │       │       │   ├── components/
+    │       │       │   │   ├── Banner.jsx
+    │       │       │   │   ├── BikeIntro.jsx
+    │       │       │   │   └── ProductSlider.jsx
+    │       │       │   └── Home.jsx
+    │       │       ├── news/
+    │       │       │   ├── HomeNewsSection.jsx
+    │       │       │   └── NewsDetail.jsx
+    │       │       └── products/
+    │       │           ├── components/
+    │       │           │   ├── FilterSidebar.jsx
+    │       │           │   └── ProductCard.jsx
+    │       │           └── ProductList.jsx
+    │       ├── routes/
+    │       │   ├── AdminRoute.jsx
+    │       │   ├── AppRoutes.jsx
+    │       │   └── PrivateRoutes.jsx
+    │       ├── services/
+    │       │   ├── api.js
+    │       │   ├── authService.js
+    │       │   ├── orderService.js
+    │       │   ├── paymentService.js
+    │       │   ├── postService.js
+    │       │   └── productService.js
+    │       ├── style/
+    │       │   ├── base/
+    │       │   │   ├── base.scss
+    │       │   │   ├── reset.scss
+    │       │   │   └── variables.scss
+    │       │   ├── components/
+    │       │   │   ├── buttons.scss
+    │       │   │   ├── cards.scss
+    │       │   │   ├── filterSidebar.scss
+    │       │   │   ├── productCard.scss
+    │       │   │   └── productSlider.scss
+    │       │   ├── layouts/
+    │       │   │   ├── footer.scss
+    │       │   │   ├── header.scss
+    │       │   │   └── LoginRegister.scss  
+    │       │   ├── pages/
+    │       │   │   ├── cart.scss
+    │       │   │   ├── contact.scss
+    │       │   │   ├── flashsale.scss
+    │       │   │   ├── home.scss
+    │       │   │   ├── news.scss
+    │       │   │   └── products.scss
+    │       │   └── main.scss
+    │       ├── utils/
+    │       │   └── apiBaseUrl.js
+    │       ├── App.js
+    │       ├── index.css
+    │       └── index.js
+    ├── database/
+    │   ├── schema.sql
+    │   └── seed.sql
+    └── server /
+        ├── config/
+        │   ├── database.js
+        │   └── jwt.js
+        ├── controllers/
+        │   ├── adminControllers.js
+        │   ├── authController.js
+        │   ├── orderController.js
+        │   ├── paymentController.js
+        │   ├── postController.js
+        │   └── productController.js
+        ├── middlewares/
+        │   ├── authMiddlewares.js
+        │   ├── errorMiddlewares.js
+        │   └── loggingMiddlewares.js
+        ├── models/
+        │   ├── Order.js
+        │   ├── Payment.js
+        │   ├── postNews.js
+        │   ├── Product.js
+        │   └── User.js
+        ├── routes/
+        │   ├── adminRoutes.js
+        │   ├── authRoutes.js
+        │   ├── index.js
+        │   ├── orderRoutes.js
+        │   ├── paymentRoutes.js
+        │   ├── postRoutes.js
+        │   └── productRoutes.js
+        ├── services/
+        │   ├── emailService.js
+        │   ├── notificationService.js
+        │   └── vnpayService.js
+        ├── uploads/
+        │   ├── documents/
+        │   └── images/
+        │       └── index.jsx
+        ├── utils/
+        │   └── generateInvoiceId.js
+        ├── .env
+        ├── app.js
+        └── server.js

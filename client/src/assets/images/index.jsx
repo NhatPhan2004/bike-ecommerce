@@ -1,4 +1,5 @@
 import logo from "./logo.png";
+import logo2 from "./logo2.png";
 import bannerBg from "./bannerBg.jpg";
 
 import bikeIntro_001 from "./bike_introduce_001.png";
@@ -8,6 +9,7 @@ import bikeIntro_004 from "./bike_introduce_004.png";
 
 export {
   logo,
+  logo2,
   bannerBg,
   bikeIntro_001,
   bikeIntro_002,

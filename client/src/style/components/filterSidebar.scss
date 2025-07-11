@@ -1,6 +1,4 @@
 .filter-sidebar {
-  width: auto;
-
   padding: 0;
   background-color: #f9f9f9;
   border: 1px solid #fff;
@@ -8,8 +6,6 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   font-size: 17px;
   position: sticky;
-  top: 20px;
-  height: fit-content;
   z-index: 1;
 
   &__title {
@@ -17,12 +13,13 @@
     font-weight: 600;
     color: #333;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 }
 
 .filter-group {
-  padding: 10px 0;
+  padding-top: 10px;
+  padding-bottom: 0;
   border-bottom: 1px dashed #9d7878;
 
   &:last-child {
