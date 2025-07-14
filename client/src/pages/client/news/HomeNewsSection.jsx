@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCalendarAlt } from "react-icons/fa";
-import "../../../style/pages/news.scss";
-import postService from "../../../services/postService";
-import apiRoutes from "../../../api";
+import "@style/pages/news.scss";
+import postService from "@services/postService";
+import apiRoutes from "@api";
 
 const HomeNewsSection = () => {
   const [posts, setPosts] = useState([]);

@@ -1,56 +1,25 @@
-const bcrypt = require("bcrypt");
+// controllers/authController.js
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
+const db = require("../config/database");
 
-exports.register = async (req, res) => {
-  try {
-    const { name, email, password, phone, address } = req.body;
+exports.login = (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password)
+    return res.status(400).json({ message: "Email và mật khẩu là bắt buộc" });
 
-    // Validate input
-    if (!name || !email || !password) {
-      return res
-        .status(400)
-        .json({ message: "Vui lòng điền đầy đủ thông tin" });
-    }
+  const sql = `SELECT * FROM user WHERE Email = ? AND Matkhau = ? AND role = 0`;
+  db.query(sql, [email, password], (err, result) => {
+    if (err) return res.status(500).json({ message: "Lỗi server" });
+    if (result.length === 0)
+      return res.status(401).json({ message: "Sai email hoặc mật khẩu" });
 
-    // Check if user exists
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: "Email đã được đăng ký" });
-    }
-
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 12);
-
-    // Create user
-    const user = new User({
-      name,
-      email,
-      password: hashedPassword,
-      phone,
-      address,
-      role: "user",
-    });
-
-    await user.save();
-
-    // Generate token
+    const user = result[0];
     const token = jwt.sign(
-      { userId: user._id, role: user.role },
-      process.env.JWT_SECRET,
+      { id: user.User_id, email: user.Email },
+      "SECRET_KEY",
       { expiresIn: "1d" }
     );
 
-    res.status(201).json({ token, userId: user._id, role: user.role });
-  } catch (error) {
-    res.status(500).json({ message: "Đăng ký thất bại" });
-  }
-};
-
-exports.login = async (req, res) => {
-  // Login logic tương tự
-};
-
-exports.forgotPassword = async (req, res) => {
-  // Logic gửi email reset password
+    return res.json({ token, user: { id: user.User_id, email: user.Email } });
+  });
 };

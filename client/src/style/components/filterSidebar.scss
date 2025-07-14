@@ -30,7 +30,7 @@
     font-size: 17px;
     margin-bottom: 15px;
     font-weight: 600;
-    color: #000;
+    color: #333;
   }
 
   &__option {
@@ -53,5 +53,25 @@
       height: 16px;
       cursor: pointer;
     }
+  }
+}
+
+.filter-group[data-type="brand"] {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 12px;
+  row-gap: 8px;
+  align-items: center;
+  line-height: 1.05;
+
+  .filter-group__title {
+    grid-column: span 2;
+    font-weight: bold;
+  }
+
+  .filter-group__option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
 }

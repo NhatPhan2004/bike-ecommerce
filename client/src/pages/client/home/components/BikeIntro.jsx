@@ -1,6 +1,6 @@
 import React from "react";
-import "../../../../style/pages/home.scss";
-import { bikeIntro_004 } from "../../../../assets/images";
+import "@style/pages/home.scss";
+import { bikeIntro_004 } from "@assets/images";
 import { Link } from "react-router-dom";
 
 const BikeIntro = () => {

@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import "../../../../style/components/filterSidebar.scss";
-
+import "@style/components/filterSidebar.scss";
 const filters = [
   {
     type: "brand",
     title: "BRAND",
     options: [
-      { label: "BlueSolis Bike", value: "Solis Bike" },
-      { label: "Other", value: "Other" },
+      { label: "MARTIN", value: "Martin" },
+      { label: "ASAMA", value: "Asama" },
+      { label: "GALAXY", value: "Galaxy" },
+      { label: "FORNIX", value: "Fornix" },
     ],
   },
+
   {
     type: "color",
     title: "COLOR",
@@ -31,14 +33,21 @@ const filters = [
   },
 ];
 
-const FilterSidebar = () => {
+const FilterSidebar = ({ onFilterChange }) => {
   const [selectedFilters, setSelectedFilters] = useState({});
 
   const handleCheckboxChange = (groupType, value) => {
-    setSelectedFilters((prev) => ({
-      ...prev,
-      [groupType]: prev[groupType] === value ? null : value, // toggle nếu click lại
-    }));
+    setSelectedFilters((prev) => {
+      const currentValue = prev[groupType]?.[0];
+
+      const updated = {
+        ...prev,
+        [groupType]: currentValue === value ? [] : [value],
+      };
+
+      onFilterChange && onFilterChange(updated);
+      return updated;
+    });
   };
 
   return (
@@ -52,7 +61,9 @@ const FilterSidebar = () => {
               <input
                 type="checkbox"
                 value={opt.value}
-                checked={selectedFilters[group.type] === opt.value}
+                checked={(selectedFilters[group.type] || []).includes(
+                  opt.value
+                )}
                 onChange={() => handleCheckboxChange(group.type, opt.value)}
               />
               {opt.label}

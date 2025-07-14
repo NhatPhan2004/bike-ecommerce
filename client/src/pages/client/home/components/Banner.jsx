@@ -1,8 +1,8 @@
-import "../../../../style/pages/home.scss";
-import bannerBg from "../../../../assets/images/bannerBg.jpg";
+import "@style/pages/home.scss";
+import bannerBg from "@assets/images/bannerBg.jpg";
 import { GiCartwheel } from "react-icons/gi";
 import { Link } from "react-router-dom";
-import "../../../../style/components/buttons.scss";
+import "@style/components/buttons.scss";
 
 const Banner = () => {
   return (
