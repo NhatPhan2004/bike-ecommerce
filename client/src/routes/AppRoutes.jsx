@@ -15,7 +15,6 @@ import Contact from "../pages/client/contact/Contact";
 import ProductList from "../pages/client/products/ProductList";
 import ProductDetail from "../pages/client/products/ProductDetail";
 
-// Route bảo vệ
 import PrivateRoutes from "./PrivateRoutes";
 
 const AppRoutes = () => {
@@ -32,16 +31,8 @@ const AppRoutes = () => {
           <Route path="contact" element={<Contact />} />
           <Route path="login" element={<LoginRegister />} />
           <Route path="logout" element={<Logout />} />
-
+          <Route path="cart" element={<Cart />} />
           {/* Private routes */}
-          <Route
-            path="cart"
-            element={
-              <PrivateRoutes>
-                <Cart />
-              </PrivateRoutes>
-            }
-          />
         </Route>
         {/* <Route
   path="/admin"

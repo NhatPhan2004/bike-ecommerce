@@ -14,7 +14,7 @@
     font-size: 1.2rem;
     color: #fff;
     background: rgba(255, 255, 255, 1);
-    border: 2px solid rgba(255, 255, 255, 0);
+    border: 1px solid rgba(255, 255, 255, 0);
     backdrop-filter: blur(5rem);
     border-radius: 0.8rem;
     white-space: nowrap;
@@ -34,15 +34,15 @@
       top: -100%;
       height: 300%;
       width: 100%;
-      background: linear-gradient(#333, #4ec3fe, #333, #4ec3fe);
+      background: linear-gradient(#333, #4c46c6, #333, #2c2875);
       z-index: -1;
       transition: 0.5s ease;
     }
 
     &:hover {
-      background: #28b3f9;
-      border-color: #6ac5f1;
-      box-shadow: 0 0 15px #6ac5f1, 0 0 30px #6ac5f1;
+      background: #2c2875;
+      border-color: #2c2875;
+      box-shadow: 0 0 15px #4842b8, 0 0 30px #2c2875;
       transform: translateY(-3px);
 
       &::before {

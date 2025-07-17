@@ -18,76 +18,86 @@ const ProductInfo = ({ product, onShowLogin }) => {
   };
 
   return (
-    <div className="product__right">
-      <h1 className="product__title">{product.tenxe}</h1>
+    <>
+      <div className="product__right">
+        <h1 className="product__title">{product.tenxe}</h1>
+        <div className="product__rating">★★★★☆</div>
 
-      <div className="product__meta">
-        <span>Brand: {product.thuonghieu}</span> |{" "}
-        <span>Product code: {product.bike_id}</span>
-      </div>
+        <div className="product__meta">
+          <span>
+            Brand:{" "}
+            <span className="product__meta-brand">{product.thuonghieu}</span>
+          </span>{" "}
+          |{" "}
+          <span>
+            Product code:{" "}
+            <span className="product__meta-code">{product.bike_id}</span>
+          </span>
+        </div>
 
-      <div className="product__price">
-        <span className="product__price--current">
-          {price.toLocaleString("vi-VN")}đ
-        </span>
-        <span className="product__price--old">
-          {oldPrice.toLocaleString("vi-VN")}đ
-        </span>
-        <span className="product__price--discount">-30%</span>
-        <span className="product__price--savings">
-          (Savings: {discount.toLocaleString("vi-VN")}đ)
-        </span>
-      </div>
+        <div className="product__price">
+          <span className="product__price--current">
+            {price.toLocaleString("vi-VN")}đ
+          </span>
+          <span className="product__price--old">
+            {oldPrice.toLocaleString("vi-VN")}đ
+          </span>
+          <span className="product__price--discount">-30%</span>
+          <span className="product__price--savings">
+            (Savings: {discount.toLocaleString("vi-VN")}đ)
+          </span>
+        </div>
 
-      <div className="product__promotion-box">
-        <strong>🎁 PROMOTION - DEALS</strong>
-        <ul>
-          <li>Free Shipping for Orders from 300,000₫</li>
-          <li>30-Day Return Policy</li>
-          <li>Loyalty Points Program</li>
-        </ul>
-      </div>
+        <div className="product__promotion-box">
+          <strong>🎁 PROMOTION - DEALS</strong>
+          <ul>
+            <li>Free Shipping for Orders from 300,000₫</li>
+            <li>30-Day Return Policy</li>
+            <li>Loyalty Points Program</li>
+          </ul>
+        </div>
 
-      <div className="product__buy-section">
-        {!isLoggedIn ? (
-          <button className="product__buy-login-btn" onClick={onShowLogin}>
-            SIGN IN TO PURCHASE
-          </button>
-        ) : (
-          <>
-            <div className="product__buy-box">
-              <div className="product__quantity">
-                <button onClick={() => handleQtyChange(-1)}>-</button>
-                <input type="text" value={quantity} readOnly />
-                <button onClick={() => handleQtyChange(1)}>+</button>
+        <div className="product__buy-section">
+          {!isLoggedIn ? (
+            <button className="product__buy-login-btn" onClick={onShowLogin}>
+              SIGN IN TO PURCHASE
+            </button>
+          ) : (
+            <>
+              <div className="product__buy-box">
+                <div className="product__quantity">
+                  <button onClick={() => handleQtyChange(-1)}>-</button>
+                  <input type="text" value={quantity} readOnly />
+                  <button onClick={() => handleQtyChange(1)}>+</button>
+                </div>
+                <button className="product__add-to-cart">ADD TO CART</button>
               </div>
-              <button className="product__add-to-cart">ADD TO CART</button>
-            </div>
-            <button className="product__buy-now">BUY NOW</button>
-          </>
-        )}
+              <button className="product__buy-now">BUY NOW</button>
+            </>
+          )}
 
-        <div className="product__hotline">
-          Hotline{" "}
-          <a href="tel:18000000">
-            <strong>1800.0000</strong>
-          </a>{" "}
-          (7:30 - 22:00)
-        </div>
+          <div className="product__hotline">
+            Hotline{" "}
+            <a href="tel:18000000">
+              <strong>1800.0000</strong>
+            </a>{" "}
+            (7:30 - 22:00)
+          </div>
 
-        <div className="product__benefits">
-          <span>
-            <FaShippingFast /> Nationwide Delivery
-          </span>
-          <span>
-            <IoGiftSharp /> Earn Points
-          </span>
-          <span>
-            <IoIosChatbubbles /> Dedicated Consultation
-          </span>
+          <div className="product__benefits">
+            <span>
+              <FaShippingFast /> Nationwide Delivery
+            </span>
+            <span>
+              <IoGiftSharp /> Earn Points
+            </span>
+            <span>
+              <IoIosChatbubbles /> Dedicated Consultation
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -5,9 +5,9 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
 import { NavLink } from "react-router-dom";
-import logo1 from "../../../assets/images/logo1.png";
-import LoginRegister from "../../../pages/client/auth/LoginRegister";
-import "../../../style/layouts/header.scss";
+import logo_header from "@assets/images/logo_header.png";
+import LoginRegister from "@pages/client/auth/LoginRegister";
+import "@style/layouts/header.scss";
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -24,7 +24,7 @@ const Header = () => {
         <div className="header__row-flex">
           <div className="header__left">
             <NavLink to="/" className="header__logo">
-              <img src={logo1} alt="logo" />
+              <img src={logo_header} alt="logo" />
             </NavLink>
           </div>
 
@@ -91,7 +91,6 @@ const Header = () => {
               <span className="header__quantity-cart"></span>
             </NavLink>
 
-            {/* ✅ Sửa tại đây - mở form đăng nhập khi nhấn icon user */}
             <div className="header__user" onClick={toggleLogin}>
               <AiOutlineUser />
             </div>
@@ -99,7 +98,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* ✅ Sửa tại đây - popup đăng nhập hiện ra */}
       {showLogin && (
         <div className="login-popup-center" onClick={() => setShowLogin(false)}>
           <div className="login-popup-box" onClick={(e) => e.stopPropagation()}>

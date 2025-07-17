@@ -6,7 +6,7 @@ const apiRoutes = {
   imageBase: "http://localhost:5000",
   image: {
     product: "/uploads/images/",
-    post: "",
+    post: "/uploads/images/",
   },
 
   products: {

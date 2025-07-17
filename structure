@@ -2,12 +2,12 @@
 └── bike-ecommerce/
     ├── client/
     │   ├── public/
-    │   │   └── index.js
+    │   │   └── index.html
     │   └── src/
     │       ├── api/
     │       │   ├── routes/
-    │       │   │   ├── authRoutes.js
-    │       │   │   └── productRoutes.js
+    │       │   │   ├── axiosInstance.js
+    │       │   │   └── index.js
     │       │   ├── axiosInstance.js
     │       │   ├── index.js
     │       │   ├── newsApi.js

@@ -8,7 +8,7 @@
   width: 320px;
   height: 100%;
   transition: transform 0.8s ease, border 0.8s ease, box-shadow 0.8s ease;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 
   &:hover {
     box-shadow: 0 8px 20px #103075;
@@ -30,6 +30,7 @@
     img {
       width: 100%;
       height: 300px;
+
       object-fit: cover;
       display: block;
       transition: transform 0.8s ease;
@@ -89,5 +90,27 @@
     background: #fff0f0;
     border: 1px dashed #d70018;
     border-radius: 8px;
+  }
+}
+
+// Suggested-products
+.suggested-products {
+  margin: 20px 0;
+  padding: 0 40px;
+
+  &__title {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: #333;
+    text-align: center;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 60px;
   }
 }

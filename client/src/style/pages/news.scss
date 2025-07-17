@@ -100,12 +100,25 @@
 
 //New Detail
 .news-detail {
-  padding: 40px 20px;
+  // padding: 40px 20px;
   background-color: #fffbec;
   font-family: "Poppins", sans-serif;
+  margin-top: 76px;
+
+  &__location {
+    background-color: #e8e6dc;
+    width: 100%;
+    font-size: 18px;
+    padding: 5px 20px;
+    margin-bottom: 40px;
+
+    span {
+      font-weight: bold;
+    }
+  }
 
   &__container {
-    max-width: 850px;
+    max-width: 1150px;
     margin: 0 auto;
   }
 
@@ -113,12 +126,13 @@
     font-size: 32px;
     font-weight: bold;
     color: #333;
-    margin-bottom: 12px;
+    margin-bottom: 20px;
+    text-align: center;
   }
 
   &__meta {
-    color: #777;
-    font-size: 14px;
+    color: #444;
+    font-size: 15px;
     margin-bottom: 20px;
     display: flex;
     gap: 20px;
@@ -128,7 +142,7 @@
     width: 100%;
     max-height: 400px;
     object-fit: cover;
-    border-radius: 8px;
+    // border-radius: 8px;
     margin-bottom: 24px;
   }
 
@@ -138,15 +152,74 @@
     color: #333;
 
     img {
+      display: flex;
       max-width: 100%;
       height: auto;
-      margin: 20px 0;
+      margin: 20px auto;
     }
 
     h2,
     h3 {
       margin-top: 30px;
-      color: #444;
+      color: #333;
+    }
+    p {
+      text-align: justify;
+    }
+
+    ul {
+      list-style: none;
+      li {
+        max-width: 800px;
+        margin: 0 50px;
+      }
+    }
+  }
+  .new-detail__related {
+    margin-top: 40px;
+  }
+  // RESPONSIVE
+  @media (max-width: 1023px) {
+    &__title {
+      font-size: 28px;
+    }
+
+    &__meta {
+      font-size: 14px;
+      gap: 10px;
+    }
+
+    &__content {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: 30px 15px;
+
+    &__title {
+      font-size: 24px;
+    }
+
+    &__image {
+      max-height: 280px;
+    }
+
+    &__meta {
+      flex-direction: column;
+      font-size: 13px;
+      gap: 6px;
+    }
+
+    &__content {
+      font-size: 15px;
+
+      ul {
+        padding-left: 20px;
+        li {
+          margin: 0 0 8px;
+        }
+      }
     }
   }
 }

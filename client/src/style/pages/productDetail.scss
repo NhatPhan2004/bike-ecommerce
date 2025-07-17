@@ -1,18 +1,37 @@
+.product__location {
+  background-color: #e8e6dc;
+  width: 100%;
+  font-size: 18px;
+  padding: 5px 20px;
+  margin-top: 76px;
+  margin-bottom: 0;
+
+  span {
+    font-weight: bold;
+  }
+}
+
 .product__container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 40px 20px;
   max-width: 1200px;
-  margin: 80px auto 0;
+  margin: 0 auto;
   gap: 40px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 20px 10px;
+    gap: 20px;
+  }
 }
 
 .product__left {
   flex: 1 1 45%;
   display: flex;
   justify-content: center;
-  margin-top: -70px;
+  margin-top: -20px;
 
   .product__main-image {
     width: 100%;
@@ -22,7 +41,6 @@
       width: 100%;
       height: auto;
       border-radius: 10px;
-      // box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
       object-fit: cover;
     }
   }
@@ -32,7 +50,6 @@
   flex: 1 1 45%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 
   .product__title {
     font-size: 32px;
@@ -40,10 +57,21 @@
     color: #333;
   }
 
+  .product__rating {
+    color: #fbbf24;
+    font-size: 30px;
+  }
+
   .product__meta {
-    font-size: 16px;
+    font-size: 18px;
     color: #555;
     margin-bottom: 10px;
+    &-brand {
+      font-weight: bold;
+    }
+    &-code {
+      font-weight: bold;
+    }
   }
 
   .product__price {
@@ -85,6 +113,7 @@
     padding: 15px;
     margin-bottom: 10px;
     font-size: 18px;
+
     strong {
       display: block;
       margin-bottom: 10px;
@@ -96,20 +125,23 @@
       list-style: disc;
       color: #444;
     }
+    @media (max-width: 768px) {
+      font-size: 16px;
+      width: 100%;
+    }
   }
 
   .product__buy-login-btn,
   .product__buy-now {
     background-color: #1a1a1a;
-    color: #fff;
+    color: #fffbec;
     padding: 12px;
-    font-weight: bold;
-    width: 100%;
-    border: none;
     font-weight: 500;
     font-size: 18px;
     cursor: pointer;
-    margin-bottom: 15px;
+    width: 100%;
+    font-weight: bold;
+    margin-bottom: 10px;
     transition: transform 0.3s ease;
   }
 
@@ -151,6 +183,7 @@
   .product__hotline {
     font-size: 18px;
     margin-bottom: 1rem;
+    text-align: center;
 
     .product__hotline-number {
       color: #fbbf24;

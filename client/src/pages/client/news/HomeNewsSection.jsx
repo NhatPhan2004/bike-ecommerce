@@ -5,7 +5,7 @@ import "@style/pages/news.scss";
 import postService from "@services/postService";
 import apiRoutes from "@api";
 
-const HomeNewsSection = () => {
+const HomeNewsSection = ({ title = "LATEST NEWS" }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const HomeNewsSection = () => {
 
   return (
     <section className="home-news">
-      <h2 className="home-news__title">LATEST NEWS</h2>
+      <h2 className="home-news__title">{title}</h2>
       <div className="home-news__list">
         {posts && posts.length > 0 ? (
           posts.map((post) => (

@@ -4,11 +4,14 @@ import { GiCartwheel } from "react-icons/gi";
 import ProductCard from "./components/ProductCard";
 import productService from "@services/productService";
 import "@style/pages/products.scss";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [filters, setFilters] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     productService
@@ -16,7 +19,12 @@ const ProductList = () => {
       .then((res) => {
         setProducts(res.data);
         setFiltered(res.data);
+
+        setTimeout(() => {
+          setLoading(false);
+        }, 1500);
       })
+
       .catch((err) => console.error("Product load error:", err));
   }, []);
 
@@ -53,24 +61,36 @@ const ProductList = () => {
   };
 
   return (
-    <div className="product-page">
-      <div className="product-FilterSidebar">
-        <FilterSidebar onFilterChange={handleFilterChange} />
-      </div>
+    <>
+      <div className="product-page">
+        <div className="product-FilterSidebar">
+          <FilterSidebar onFilterChange={handleFilterChange} />
+        </div>
 
-      <div className="product-list__container">
-        <div className="product-list__line">
-          <span className="product-list__icon">
-            <GiCartwheel className="wheel-icon" />
-          </span>
-        </div>
-        <div className="product-list">
-          {filtered.map((product) => (
-            <ProductCard key={product.bike_id} product={product} />
-          ))}
+        <div className="product-list__container">
+          <div className="product-list__line">
+            <span className="product-list__icon">
+              <GiCartwheel className="wheel-icon" />
+            </span>
+          </div>
+          <div className="product-list">
+            {loading
+              ? Array.from({ length: 9 }).map((_, index) => (
+                  <div className="product-card skeleton" key={index}>
+                    <Skeleton className="product-card__skeleton-image" />
+                    <Skeleton
+                      count={4}
+                      className="product-card__skeleton-count"
+                    />
+                  </div>
+                ))
+              : filtered.map((product) => (
+                  <ProductCard key={product.bike_id} product={product} />
+                ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

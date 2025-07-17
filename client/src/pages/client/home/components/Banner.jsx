@@ -1,5 +1,6 @@
 import "@style/pages/home.scss";
-import bannerBg from "@assets/images/bannerBg.jpg";
+// import bannerBg from "@assets/images/bannerBg.jpg";
+import { bicycle } from "../../../../assets/images";
 import { GiCartwheel } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import "@style/components/buttons.scss";
@@ -10,7 +11,9 @@ const Banner = () => {
       <section className="banner">
         <div className="banner__container">
           <div className="banner__images">
-            <img src={bannerBg} alt="banner" />
+            {/* <img src={bannerBg} alt="banner" /> */}
+            <img src={bicycle} alt="banner" />
+
             <div className="banner__overlay"></div>
           </div>
 
