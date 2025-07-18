@@ -10,12 +10,10 @@ import Flashsale from "../pages/client/flashsale/Flashsale";
 import NewsDetail from "../pages/client/news/NewsDetail";
 import LoginRegister from "../pages/client/auth/LoginRegister";
 import Logout from "../pages/client/auth/Logout";
-import Cart from "../pages/client/cart/Cart";
+import Cart from "../pages/client/cart/CartPage";
 import Contact from "../pages/client/contact/Contact";
 import ProductList from "../pages/client/products/ProductList";
 import ProductDetail from "../pages/client/products/ProductDetail";
-
-import PrivateRoutes from "./PrivateRoutes";
 
 const AppRoutes = () => {
   return (

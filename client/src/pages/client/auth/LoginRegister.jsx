@@ -4,14 +4,16 @@ import "@style/layouts/LoginRegister.scss";
 import { useNavigate } from "react-router-dom";
 import { login, register } from "@/services/authService";
 import { useAuth } from "@/contexts/AuthContext";
+import axios from "axios";
 
-const LoginRegister = () => {
+const LoginRegister = ({ onClose }) => {
   const [activeForm, setActiveForm] = useState("login-form");
   const [loginData, setLoginData] = useState({ email: "", password: "" });
   const [registerData, setRegisterData] = useState({
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
   });
   const { loginUser } = useAuth();
   const navigate = useNavigate();
@@ -22,32 +24,51 @@ const LoginRegister = () => {
     e.preventDefault();
     try {
       const res = await login(loginData);
-      loginUser(res); // Cập nhật context
-      navigate(-1); // Quay lại trang trước
+      localStorage.setItem("token", res.data.token);
+      loginUser(res.data);
+      if (onClose) onClose();
+      navigate(-1);
     } catch (err) {
-      alert("Sai email hoặc mật khẩu!");
+      alert("Wrong email or password");
     }
   };
 
   const handleRegister = async (e) => {
     e.preventDefault();
+
+    const { name, email, password, confirmPassword } = registerData;
+
+    if (password !== confirmPassword) {
+      alert("Password and password confirmation.");
+      return;
+    }
+
     try {
-      await register(registerData);
-      alert("Đăng ký thành công! Mời bạn đăng nhập.");
-      setActiveForm("login-form");
+      const res = await axios.post("/api/auth/register", {
+        name,
+        email,
+        password,
+      });
+      alert("Successful registration! Please login.");
+      setRegisterData({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
     } catch (err) {
-      alert("Đăng ký thất bại. Email có thể đã tồn tại.");
+      console.error(err);
+      alert("Register failure. Email may have existed.");
     }
   };
 
   return (
     <div className="login-form__container">
-      {/* Login Form */}
+      {/* Form đăng nhập */}
       <div
         className={`login-form__box ${
           activeForm === "login-form" ? "active" : ""
         }`}
-        id="login-form"
       >
         <form className="login-form__form" onSubmit={handleLogin}>
           <h1 className="login-form__title">Login</h1>
@@ -77,8 +98,7 @@ const LoginRegister = () => {
           </div>
           <div className="login-form__remember-forgot-box">
             <label>
-              <input type="checkbox" />
-              Remember me
+              <input type="checkbox" /> Remember me
             </label>
             <span
               className="login-form__link"
@@ -102,12 +122,11 @@ const LoginRegister = () => {
         </form>
       </div>
 
-      {/* Register Form */}
+      {/* Form đăng ký */}
       <div
         className={`login-form__box ${
           activeForm === "register-form" ? "active" : ""
         }`}
-        id="register-form"
       >
         <form className="login-form__form" onSubmit={handleRegister}>
           <h1 className="login-form__title">Register</h1>
@@ -147,6 +166,21 @@ const LoginRegister = () => {
               required
             />
           </div>
+          <div className="login-form__input-box">
+            <i className="bx bxs-lock-alt"></i>
+            <input
+              type="password"
+              placeholder="Confirm Password"
+              value={registerData.confirmPassword}
+              onChange={(e) =>
+                setRegisterData({
+                  ...registerData,
+                  confirmPassword: e.target.value,
+                })
+              }
+              required
+            />
+          </div>
           <button className="login-form__btn" type="submit">
             Register
           </button>
@@ -162,12 +196,11 @@ const LoginRegister = () => {
         </form>
       </div>
 
-      {/* Forgot Password Form */}
+      {/* Form quên mật khẩu */}
       <div
         className={`login-form__box ${
           activeForm === "forgot-password-form" ? "active" : ""
         }`}
-        id="forgot-password-form"
       >
         <form className="login-form__form">
           <h1 className="login-form__title">Forgot Password</h1>

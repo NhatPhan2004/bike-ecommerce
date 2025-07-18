@@ -9,9 +9,9 @@ const db = mysql.createConnection({
 
 db.connect((err) => {
   if (err) {
-    console.error("❌ Kết nối DB thất bại:", err.message);
+    console.error("❌ DB connection failed::", err.message);
   } else {
-    console.log("✅ Kết nối MySQL thành công!");
+    console.log("✅ Connected to MySQL!");
   }
 });
 

@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { getProfile, getToken, logout } from "../services/authService";
+import { createContext, useContext, useState, useEffect } from "react";
+import { getToken, login as loginService } from "../services/authService";
+import { jwtDecode } from "jwt-decode";
 
 const AuthContext = createContext();
 
@@ -7,30 +8,26 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const fetchProfile = async () => {
-      const token = getToken();
-      if (token) {
-        try {
-          const res = await getProfile();
-          setUser(res.user);
-        } catch (err) {
-          logout();
-          setUser(null);
-        }
-      }
-    };
-
-    fetchProfile();
+    const token = getToken();
+    if (token) {
+      const decoded = jwtDecode(token);
+      setUser({ id: decoded.id });
+    }
   }, []);
 
-  const loginUser = (userData) => setUser(userData.user);
-  const logoutUser = () => {
-    logout();
+  const login = async (data) => {
+    const res = await loginService(data);
+    localStorage.setItem("token", res.data.token);
+    setUser(res.data.user);
+  };
+
+  const logout = () => {
+    localStorage.removeItem("token");
     setUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, loginUser, logoutUser }}>
+    <AuthContext.Provider value={{ user, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

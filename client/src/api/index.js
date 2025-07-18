@@ -19,6 +19,19 @@ const apiRoutes = {
     getById: (id) => `/posts/${id}`,
     home: "/posts/home",
   },
+
+  auth: {
+    login: "/auth/login",
+    register: "/auth/register",
+    profile: "/auth/profile",
+  },
+
+  cart: {
+    get: `${API_BASE_URL}/cart`,
+    add: `${API_BASE_URL}/cart`,
+    update: (id) => `${API_BASE_URL}/cart/${id}`,
+    delete: (id) => `${API_BASE_URL}/cart/${id}`,
+  },
 };
 
 export default apiRoutes;

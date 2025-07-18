@@ -16,7 +16,7 @@ const getHomePosts = (req, res) => {
   db.query(query, (err, results) => {
     if (err) {
       console.error("❌ Lỗi DB:", err);
-      return res.status(500).json({ success: false, message: "Lỗi server" });
+      return res.status(500).json({ success: false, message: "Error server" });
     }
 
     res.json(results);
@@ -26,9 +26,8 @@ const getHomePosts = (req, res) => {
 const getPostBySlug = (req, res) => {
   const { slug } = req.params;
   Post.getPostBySlug(slug, (err, post) => {
-    if (err) return res.status(500).json({ error: "Lỗi server" });
-    if (!post)
-      return res.status(404).json({ error: "Không tìm thấy bài viết" });
+    if (err) return res.status(500).json({ error: "Error server" });
+    if (!post) return res.status(404).json({ error: "No article found" });
     res.json(post);
   });
 };

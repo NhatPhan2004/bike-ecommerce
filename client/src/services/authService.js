@@ -1,29 +1,18 @@
 import axios from "axios";
+import apiRoutes from "../api";
 
-export const login = async ({ email, password }) => {
-  const res = await axios.post("/api/auth/login", { email, password });
-  localStorage.setItem("token", res.data.token);
-  return res.data;
-};
+const API = apiRoutes.base;
 
-// ✅ THÊM HÀM NÀY
-export const register = async ({ name, email, password }) => {
-  const res = await axios.post("/api/auth/register", { name, email, password });
-  return res.data;
-};
+export const register = (data) =>
+  axios.post(`${API}${apiRoutes.auth.register}`, data);
+export const login = (data) =>
+  axios.post(`${API}${apiRoutes.auth.login}`, data);
+
+export const logout = () => localStorage.removeItem("token");
 
 export const getToken = () => localStorage.getItem("token");
 
-export const logout = () => {
-  localStorage.removeItem("token");
-};
-
-export const getProfile = async () => {
-  const token = getToken();
-  const res = await axios.get("/api/auth/profile", {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
+export const getProfile = () =>
+  axios.get(`${API}${apiRoutes.auth.profile}`, {
+    headers: { Authorization: `Bearer ${getToken()}` },
   });
-  return res.data;
-};

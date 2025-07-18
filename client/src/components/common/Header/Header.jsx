@@ -1,5 +1,4 @@
-// ✅ FINAL FILE: Header.jsx
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { AiOutlineUser } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
@@ -8,15 +7,21 @@ import { NavLink } from "react-router-dom";
 import logo_header from "@assets/images/logo_header.png";
 import LoginRegister from "@pages/client/auth/LoginRegister";
 import "@style/layouts/header.scss";
+import { useAuth } from "@contexts/AuthContext";
+import { useCart } from "@contexts/CartContext";
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const { user, logout } = useAuth();
+  const { items } = useCart();
+  const cartCount = user ? items.length : 0;
 
   const toggleLogin = () => setShowLogin(!showLogin);
   const toggleSearch = () => setShowSearch(!showSearch);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+  const handleMenuItemClick = () => setIsMobileMenuOpen(false);
 
   return (
     <header className="header">
@@ -43,6 +48,7 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive ? "header__main-menu--active" : undefined
                   }
+                  onClick={handleMenuItemClick}
                 >
                   Home
                 </NavLink>
@@ -53,6 +59,7 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive ? "header__main-menu--active" : undefined
                   }
+                  onClick={handleMenuItemClick}
                 >
                   Products
                 </NavLink>
@@ -63,6 +70,7 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive ? "header__main-menu--active" : undefined
                   }
+                  onClick={handleMenuItemClick}
                 >
                   Flash Sale
                 </NavLink>
@@ -73,6 +81,7 @@ const Header = () => {
                   className={({ isActive }) =>
                     isActive ? "header__main-menu--active" : undefined
                   }
+                  onClick={handleMenuItemClick}
                 >
                   Shop
                 </NavLink>
@@ -81,27 +90,39 @@ const Header = () => {
           </div>
 
           <div className="header__right">
+            {/* Search */}
             <div className={`header__search ${showSearch ? "active" : ""}`}>
               <input type="text" placeholder="Search..." />
               <IoSearchSharp onClick={toggleSearch} />
             </div>
 
+            {/* Cart */}
             <NavLink to="/cart" className="header__cart">
               <FaShoppingCart />
-              <span className="header__quantity-cart"></span>
+              <span className="header__quantity-cart">{cartCount}</span>
             </NavLink>
+            <div className="header-cart"></div>
 
-            <div className="header__user" onClick={toggleLogin}>
-              <AiOutlineUser />
-            </div>
+            {/* User */}
+            {!user && (
+              <div className="header__user" onClick={toggleLogin}>
+                <AiOutlineUser />
+              </div>
+            )}
+            {user && (
+              <button className="header__logout" onClick={logout}>
+                Logout
+              </button>
+            )}
           </div>
         </div>
       </div>
 
-      {showLogin && (
+      {/* Popup Login */}
+      {showLogin && !user && (
         <div className="login-popup-center" onClick={() => setShowLogin(false)}>
           <div className="login-popup-box" onClick={(e) => e.stopPropagation()}>
-            <LoginRegister />
+            <LoginRegister onClose={() => setShowLogin(false)} />
           </div>
         </div>
       )}
