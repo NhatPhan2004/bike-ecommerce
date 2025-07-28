@@ -3,20 +3,23 @@ import { AiOutlineUser } from "react-icons/ai";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaShoppingCart } from "react-icons/fa";
 import { IoSearchSharp } from "react-icons/io5";
+import { FiLogOut } from "react-icons/fi";
 import { NavLink } from "react-router-dom";
 import logo_header from "@assets/images/logo_header.png";
 import LoginRegister from "@pages/client/auth/LoginRegister";
 import "@style/layouts/header.scss";
 import { useAuth } from "@contexts/AuthContext";
 import { useCart } from "@contexts/CartContext";
+import { useSearch } from "@contexts/SearchContext";
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const { user, logout } = useAuth();
-  const { items } = useCart();
-  const cartCount = user ? items.length : 0;
+  const { cartItems } = useCart();
+  const cartCount = user ? cartItems?.length || 0 : 0;
+  const { searchKeyword, setSearchKeyword } = useSearch();
 
   const toggleLogin = () => setShowLogin(!showLogin);
   const toggleSearch = () => setShowSearch(!showSearch);
@@ -92,7 +95,12 @@ const Header = () => {
           <div className="header__right">
             {/* Search */}
             <div className={`header__search ${showSearch ? "active" : ""}`}>
-              <input type="text" placeholder="Search..." />
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchKeyword}
+                onChange={(e) => setSearchKeyword(e.target.value)}
+              />
               <IoSearchSharp onClick={toggleSearch} />
             </div>
 
@@ -112,6 +120,7 @@ const Header = () => {
             {user && (
               <button className="header__logout" onClick={logout}>
                 Logout
+                <FiLogOut className="header__logout--icon" />
               </button>
             )}
           </div>

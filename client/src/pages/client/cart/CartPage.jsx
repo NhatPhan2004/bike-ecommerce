@@ -5,6 +5,7 @@ import {
   deleteCartItem,
 } from "@services/cartService";
 import "@style/pages/cart.scss";
+import apiRoutes from "@api";
 
 const CartPage = () => {
   const [items, setItems] = useState([]);
@@ -13,8 +14,14 @@ const CartPage = () => {
   const loadCart = async () => {
     try {
       const res = await fetchCart();
-      setItems(res.data.items);
-      setTotal(res.data.total);
+
+      if (res?.cart?.items) {
+        setItems(res.cart.items);
+        setTotal(res.cart.total);
+      } else {
+        setItems([]);
+        setTotal(0);
+      }
     } catch (err) {
       console.error("Cart load error:", err);
     }
@@ -45,7 +52,7 @@ const CartPage = () => {
           {items.map((item) => (
             <div className="cart__item" key={item.bike_id}>
               <img
-                src={`/images/${item.hinhanh}`}
+                src={`${apiRoutes.imageBase}${apiRoutes.image.product}${item.img}`}
                 alt={item.tenxe}
                 className="cart__image"
               />

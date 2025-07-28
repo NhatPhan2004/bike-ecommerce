@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import apiRoutes from "@api";
 import "@style/pages/productDetail.scss";
-
 import ProductImage from "./components/ProductImages";
 import ProductInfo from "./components/ProductInfo";
 import ProductTabs from "./components/ProductTabs";
@@ -15,6 +14,11 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [mainImage, setMainImage] = useState("");
   const [showLogin, setShowLogin] = useState(false);
+  const location = useLocation();
+  const flashPrice = location.state?.flashPrice;
+  const discount = location.state?.discount;
+  const isFlashSale = location.state?.isFlashSale || false;
+  const originalPrice = location.state?.originalPrice;
 
   useEffect(() => {
     axios.get(`${apiRoutes.base}/products/${id}`).then((res) => {
@@ -31,7 +35,11 @@ const ProductDetail = () => {
   return (
     <>
       <div className="product__location">
-        <span>Products / </span> {product.tenxe}
+        <Link to="/products" className="product__location-back">
+          Products /{" "}
+        </Link>{" "}
+        {""}
+        {product.tenxe}
       </div>
       <div className="product__container">
         <ProductImage
@@ -39,7 +47,14 @@ const ProductDetail = () => {
           setImage={setMainImage}
           hinhanh={product.hinhanh}
         />
-        <ProductInfo product={product} onShowLogin={() => setShowLogin(true)} />
+        <ProductInfo
+          product={product}
+          flashPrice={flashPrice}
+          discount={discount}
+          originalPrice={originalPrice}
+          onShowLogin={() => setShowLogin(true)}
+        />
+
         <ProductTabs />
       </div>
 

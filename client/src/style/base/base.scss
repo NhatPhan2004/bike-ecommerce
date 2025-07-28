@@ -4,7 +4,7 @@
   --color-one: #103075;
   --color-two: #292929;
   --color-text: #333;
-  --font: "DM Sans", sans-serif;
+  --font: "Poppins", sans-serif;
 }
 
 * {
@@ -15,7 +15,7 @@ body {
   color: var(--color-text);
 }
 a {
-  text-decoration: none; /*làm mất gạch chân*/
+  text-decoration: none;
 }
 .container {
   width: 100%;

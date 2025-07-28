@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { fetchCart } from "../services/cartService";
+import { fetchCart as fetchCartService } from "../services/cartService";
 import { getToken } from "@services/authService";
 
 const CartContext = createContext();
@@ -9,13 +9,23 @@ export const CartProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
 
   const fetchCart = async () => {
+    setLoading(true);
     try {
       const token = getToken();
-      if (!token) return;
-      const res = await fetchCart();
-      setCartItems(res.data.cart);
+
+      if (!token) {
+        setCartItems([]);
+        return;
+      }
+
+      const res = await fetchCartService();
+      if (res?.cart?.items) {
+        setCartItems(res.cart.items);
+      } else {
+        setCartItems([]);
+      }
     } catch (err) {
-      console.error("Failed to fetch cart:", err);
+      setCartItems([]);
     } finally {
       setLoading(false);
     }
@@ -25,8 +35,12 @@ export const CartProvider = ({ children }) => {
     fetchCart();
   }, []);
 
+  useEffect(() => {}, [cartItems]);
+
   return (
-    <CartContext.Provider value={{ cartItems, setCartItems, loading }}>
+    <CartContext.Provider
+      value={{ cartItems, setCartItems, loading, fetchCart }}
+    >
       {children}
     </CartContext.Provider>
   );

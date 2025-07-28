@@ -1,8 +1,7 @@
-// controllers/postController.js
 const db = require("../config/database");
 const Post = require("../models/postNews");
 
-const getHomePosts = (req, res) => {
+const getHomePosts = async (req, res) => {
   const query = `
     SELECT 
       id, title, excerpt, 
@@ -13,23 +12,28 @@ const getHomePosts = (req, res) => {
     LIMIT 4
   `;
 
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error("❌ Lỗi DB:", err);
-      return res.status(500).json({ success: false, message: "Error server" });
-    }
-
-    res.json(results);
-  });
+  try {
+    const [rows] = await db.query(query);
+    res.json(rows);
+  } catch (err) {
+    console.error("❌ Lỗi getHomePosts:", err); // log full lỗi
+    res.status(500).json({ error: "Lỗi server", detail: err.message });
+  }
 };
 
-const getPostBySlug = (req, res) => {
-  const { slug } = req.params;
-  Post.getPostBySlug(slug, (err, post) => {
-    if (err) return res.status(500).json({ error: "Error server" });
-    if (!post) return res.status(404).json({ error: "No article found" });
+// Lấy chi tiết bài viết theo slug
+const getPostBySlug = async (req, res) => {
+  try {
+    const { slug } = req.params;
+    const post = await Post.getPostBySlug(slug);
+    if (!post) {
+      return res.status(404).json({ error: "Không tìm thấy bài viết" });
+    }
     res.json(post);
-  });
+  } catch (err) {
+    console.error("❌ Lỗi getPostBySlug:", err.message);
+    res.status(500).json({ error: "Lỗi server" });
+  }
 };
 
 module.exports = {

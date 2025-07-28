@@ -27,10 +27,10 @@ const apiRoutes = {
   },
 
   cart: {
-    get: `${API_BASE_URL}/cart`,
-    add: `${API_BASE_URL}/cart`,
-    update: (id) => `${API_BASE_URL}/cart/${id}`,
-    delete: (id) => `${API_BASE_URL}/cart/${id}`,
+    get: "/cart",
+    add: "/cart",
+    update: (id) => `/cart/${id}`,
+    delete: (id) => `/cart/${id}`,
   },
 };
 

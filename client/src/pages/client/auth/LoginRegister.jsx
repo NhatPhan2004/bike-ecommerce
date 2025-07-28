@@ -2,19 +2,23 @@ import React, { useState } from "react";
 import "boxicons/css/boxicons.min.css";
 import "@style/layouts/LoginRegister.scss";
 import { useNavigate } from "react-router-dom";
-import { login, register } from "@/services/authService";
-import { useAuth } from "@/contexts/AuthContext";
 import axios from "axios";
+import { useAuth } from "@/contexts/AuthContext";
+import apiRoutes from "@api";
 
 const LoginRegister = ({ onClose }) => {
   const [activeForm, setActiveForm] = useState("login-form");
+
   const [loginData, setLoginData] = useState({ email: "", password: "" });
+
   const [registerData, setRegisterData] = useState({
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    phone: "",
+    address: "",
   });
+
   const { loginUser } = useAuth();
   const navigate = useNavigate();
 
@@ -23,48 +27,45 @@ const LoginRegister = ({ onClose }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await login(loginData);
-      localStorage.setItem("token", res.data.token);
-      loginUser(res.data);
+      await loginUser(loginData);
       if (onClose) onClose();
-      navigate(-1);
+      navigate("/");
     } catch (err) {
-      alert("Wrong email or password");
+      const message = err.response?.data?.message || "Login failed.";
+      alert(message);
     }
   };
 
   const handleRegister = async (e) => {
     e.preventDefault();
-
-    const { name, email, password, confirmPassword } = registerData;
-
-    if (password !== confirmPassword) {
-      alert("Password and password confirmation.");
-      return;
-    }
+    const { name, email, password, phone, address } = registerData;
 
     try {
-      const res = await axios.post("/api/auth/register", {
+      await axios.post(`${apiRoutes.base}${apiRoutes.auth.register}`, {
         name,
         email,
         password,
+        phone,
+        address,
       });
-      alert("Successful registration! Please login.");
+
+      alert("Registration successful");
       setRegisterData({
         name: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        phone: "",
+        address: "",
       });
     } catch (err) {
       console.error(err);
-      alert("Register failure. Email may have existed.");
+      alert(err.response?.data?.message || "Registration error");
     }
   };
 
   return (
     <div className="login-form__container">
-      {/* Form đăng nhập */}
+      {/* LOGIN */}
       <div
         className={`login-form__box ${
           activeForm === "login-form" ? "active" : ""
@@ -96,17 +97,6 @@ const LoginRegister = ({ onClose }) => {
               required
             />
           </div>
-          <div className="login-form__remember-forgot-box">
-            <label>
-              <input type="checkbox" /> Remember me
-            </label>
-            <span
-              className="login-form__link"
-              onClick={() => showForm("forgot-password-form")}
-            >
-              Forgot Password?
-            </span>
-          </div>
           <button className="login-form__btn" type="submit">
             Login
           </button>
@@ -122,7 +112,7 @@ const LoginRegister = ({ onClose }) => {
         </form>
       </div>
 
-      {/* Form đăng ký */}
+      {/* REGISTER */}
       <div
         className={`login-form__box ${
           activeForm === "register-form" ? "active" : ""
@@ -130,6 +120,7 @@ const LoginRegister = ({ onClose }) => {
       >
         <form className="login-form__form" onSubmit={handleRegister}>
           <h1 className="login-form__title">Register</h1>
+
           <div className="login-form__input-box">
             <i className="bx bxs-user"></i>
             <input
@@ -142,6 +133,7 @@ const LoginRegister = ({ onClose }) => {
               required
             />
           </div>
+
           <div className="login-form__input-box">
             <i className="bx bxs-envelope"></i>
             <input
@@ -154,6 +146,7 @@ const LoginRegister = ({ onClose }) => {
               required
             />
           </div>
+
           <div className="login-form__input-box">
             <i className="bx bxs-lock-alt"></i>
             <input
@@ -166,53 +159,39 @@ const LoginRegister = ({ onClose }) => {
               required
             />
           </div>
+
           <div className="login-form__input-box">
-            <i className="bx bxs-lock-alt"></i>
+            <i className="bx bxs-phone"></i>
             <input
-              type="password"
-              placeholder="Confirm Password"
-              value={registerData.confirmPassword}
+              type="text"
+              placeholder="Phone"
+              value={registerData.phone}
               onChange={(e) =>
-                setRegisterData({
-                  ...registerData,
-                  confirmPassword: e.target.value,
-                })
+                setRegisterData({ ...registerData, phone: e.target.value })
               }
               required
             />
           </div>
+
+          <div className="login-form__input-box">
+            <i className="bx bxs-map"></i>
+            <input
+              type="text"
+              placeholder="Address"
+              value={registerData.address}
+              onChange={(e) =>
+                setRegisterData({ ...registerData, address: e.target.value })
+              }
+              required
+            />
+          </div>
+
           <button className="login-form__btn" type="submit">
             Register
           </button>
+
           <p className="login-form__login">
             Already have an account?{" "}
-            <span
-              className="login-form__link"
-              onClick={() => showForm("login-form")}
-            >
-              Login
-            </span>
-          </p>
-        </form>
-      </div>
-
-      {/* Form quên mật khẩu */}
-      <div
-        className={`login-form__box ${
-          activeForm === "forgot-password-form" ? "active" : ""
-        }`}
-      >
-        <form className="login-form__form">
-          <h1 className="login-form__title">Forgot Password</h1>
-          <div className="login-form__input-box">
-            <i className="bx bxs-envelope"></i>
-            <input type="email" placeholder="Enter your email" required />
-          </div>
-          <button className="login-form__btn" type="submit">
-            Send Reset Link
-          </button>
-          <p className="login-form__login">
-            Remembered your password?{" "}
             <span
               className="login-form__link"
               onClick={() => showForm("login-form")}

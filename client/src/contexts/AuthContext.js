@@ -10,12 +10,17 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const token = getToken();
     if (token) {
-      const decoded = jwtDecode(token);
-      setUser({ id: decoded.id });
+      try {
+        const decoded = jwtDecode(token);
+        setUser({ id: decoded.id });
+      } catch (err) {
+        console.error("❌ Token decode failed", err.message);
+        logout();
+      }
     }
   }, []);
 
-  const login = async (data) => {
+  const loginUser = async (data) => {
     const res = await loginService(data);
     localStorage.setItem("token", res.data.token);
     setUser(res.data.user);
@@ -27,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, loginUser, logout }}>
       {children}
     </AuthContext.Provider>
   );

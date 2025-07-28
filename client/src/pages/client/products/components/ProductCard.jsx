@@ -1,10 +1,19 @@
 import React, { useState } from "react";
-import "@style/components/productCard.scss"
+import "@style/components/productCard.scss";
 import apiRoutes from "@api";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, hidePrice = false }) => {
   const [errorCount, setErrorCount] = useState(0);
+
+  const giaban = Math.round(Number(product.giaban));
+  const discountPercent = product.discount || 30;
+
+  const estimatedOriginal = product.originalPrice
+    ? Number(product.originalPrice)
+    : giaban / (1 - discountPercent / 100);
+
+  const giagoc = Math.round(estimatedOriginal / 100000) * 100000;
 
   if (!product || !product.hinhanh) {
     return (
@@ -34,9 +43,18 @@ const ProductCard = ({ product }) => {
       className="product-card"
       data-brand={product.thuonghieu}
       data-color={`Color: ${product.mausac}`}
-      data-price={product.giaban}
+      data-price={giaban}
     >
-      <Link to={`/product/${product.bike_id}`} className="product-card__link">
+      <Link
+        to={`/product/${product.bike_id}`}
+        className="product-card__link"
+        state={{
+          flashPrice: product.flashPrice,
+          discount: product.discount,
+          originalPrice: product.originalPrice,
+          isFlashSale: product.flashPrice !== undefined,
+        }}
+      >
         <div className="product-card__image">
           <img
             src={`${apiRoutes.imageBase}${apiRoutes.image.product}${product.hinhanh}`}
@@ -47,15 +65,20 @@ const ProductCard = ({ product }) => {
         <div className="product-card__brand">{product.thuonghieu}</div>
         <div className="product-card__title">{product.tenxe}</div>
         <div className="product-card__rating">★★★★☆</div>
-        <div className="product-card__price">
-          <span className="product-card__price--current">
-            {Number(product.giaban).toLocaleString()}đ
-          </span>
-          <span className="product-card__price--old">
-            {(Number(product.giaban) * 1.3).toLocaleString()}đ
-          </span>
-          <span className="product-card__price--discount">-30%</span>
-        </div>
+
+        {!hidePrice && (
+          <div className="product-card__price">
+            <span className="product-card__price--current">
+              {giaban.toLocaleString("vi-VN")}đ
+            </span>
+            <span className="product-card__price--old">
+              {giagoc.toLocaleString("vi-VN")}đ
+            </span>
+            <span className="product-card__price--discount">
+              -{discountPercent}%
+            </span>
+          </div>
+        )}
       </Link>
     </div>
   );

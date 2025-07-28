@@ -68,3 +68,26 @@ CREATE TABLE IF NOT EXISTS chitiethoadon (
   FOREIGN KEY (User_id) REFERENCES user(User_id),
   FOREIGN KEY (Bike_id) REFERENCES xedap(Bike_id)
 );
+
+-- Tạo bảng posts tin tức
+CREATE TABLE IF NOT EXISTS posts (
+ id INT AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  content TEXT NOT NULL,
+  excerpt TEXT,
+  image VARCHAR(100),
+  created_at DATE,
+  read_time INT,
+  slug VARCHAR(255) UNIQUE
+);
+
+-- Tạo bảng cart
+CREATE TABLE cart (
+  cart_id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  bike_id INT NOT NULL,
+  quantity INT NOT NULL,
+  price INT NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES user(User_id),
+  FOREIGN KEY (bike_id) REFERENCES xedap(Bike_id)  
+);

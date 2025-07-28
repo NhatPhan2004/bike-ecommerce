@@ -1,24 +1,45 @@
 import axios from "axios";
 import { getToken } from "./authService";
+import apiRoutes from "../api";
 
-const API_URL = "http://localhost:5000/api/cart";
-
-const getAuthHeader = () => {
+export const fetchCart = async () => {
   const token = getToken();
-  if (!token) return {};
-  return {
+  const res = await axios.get(`${apiRoutes.base}${apiRoutes.cart.get}`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
-  };
+  });
+
+  return res.data;
 };
 
-export const fetchCart = () => axios.get(API_URL, getAuthHeader());
+export const addToCart = async (item) => {
+  const token = getToken();
+  return axios.post(`${apiRoutes.base}${apiRoutes.cart.get}`, item, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
 
-export const addToCart = (data) => axios.post(API_URL, data, getAuthHeader());
+export const updateCartItem = async (bikeId, quantity) => {
+  const token = getToken();
+  return axios.put(
+    `${apiRoutes.base}${apiRoutes.cart.update(bikeId)}`,
+    { quantity },
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    }
+  );
+};
 
-export const updateCartItem = (bikeId, quantity) =>
-  axios.put(`${API_URL}/${bikeId}`, { quantity }, getAuthHeader());
-
-export const deleteCartItem = (bikeId) =>
-  axios.delete(`${API_URL}/${bikeId}`, getAuthHeader());
+export const deleteCartItem = async (bikeId) => {
+  const token = getToken();
+  return axios.delete(`${apiRoutes.base}${apiRoutes.cart.delete(bikeId)}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};

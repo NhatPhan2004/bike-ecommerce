@@ -11,7 +11,6 @@ module.exports = {
       "@api": path.resolve(__dirname, "src/api"),
       "@services": path.resolve(__dirname, "src/services"),
       "@contexts": path.resolve(__dirname, "src/contexts"),
-      "@assets": path.resolve(__dirname, "src/assets"),
     },
   },
 };
