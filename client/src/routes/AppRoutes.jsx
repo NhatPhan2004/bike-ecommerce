@@ -2,25 +2,39 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Layout
-import MainLayout from "../components/layout/MainLayout";
+import MainLayout from "../components/layouts/MainLayout";
+import AdminLayout from "../components/layouts/AdminLayout";
+import AdminPrivateRoute from "../components/private/AdminPrivate";
 
-// Pages
+// Pages - Client
 import Home from "../pages/client/home/Home";
 import Flashsale from "../pages/client/flashsale/Flashsale";
 import NewsDetail from "../pages/client/news/NewsDetail";
 import LoginRegister from "../pages/client/auth/LoginRegister";
 import Logout from "../pages/client/auth/Logout";
 import Cart from "../pages/client/cart/CartPage";
+import CheckoutAddress from "../pages/client/cart/ShippingInfo";
 import Contact from "../pages/client/contact/Contact";
 import ProductList from "../pages/client/products/ProductList";
 import ProductDetail from "../pages/client/products/ProductDetail";
+import PaymentSuccess from "../pages/client/cart/Payment";
+
+// Pages - Admin
+import AdminLogin from "../pages/admin/AdminLogin/AdminLogin";
+import Dashboard from "../pages/admin/Dashboard/Dashboard";
+import Customers from "../pages/admin/Customers/Customers";
+import Orders from "../pages/admin/Orders/Orders";
+import Products from "../pages/admin/Products/Products";
+import Statistics from "../pages/admin/Statistics/Statistics";
+import EditProduct from "../pages/admin/Products/components/EditProduct";
+import AddProduct from "../pages/admin/Products/components/AddProduct";
 
 const AppRoutes = () => {
   return (
     <Router>
       <Routes>
+        {/* CLIENT ROUTES */}
         <Route path="/" element={<MainLayout />}>
-          {/* Public routes */}
           <Route index element={<Home />} />
           <Route path="products" element={<ProductList />} />
           <Route path="product/:id" element={<ProductDetail />} />
@@ -30,16 +44,31 @@ const AppRoutes = () => {
           <Route path="login" element={<LoginRegister />} />
           <Route path="logout" element={<Logout />} />
           <Route path="cart" element={<Cart />} />
-          {/* Private routes */}
+          <Route path="address" element={<CheckoutAddress />} />
+          <Route path="payment-success" element={<PaymentSuccess />} />
         </Route>
-        {/* <Route
-  path="/admin"
-  element={
-    <AdminPrivateRoute>
-      <AdminLayout />
-    </AdminPrivateRoute>
-  }
-/> */}
+
+        {/* ADMIN LOGIN */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+
+        {/* ADMIN ROUTES */}
+        <Route
+          path="/admin"
+          element={
+            <AdminPrivateRoute>
+              <AdminLayout />
+            </AdminPrivateRoute>
+          }
+        >
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="products" element={<Products />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="customers" element={<Customers />} />
+          <Route path="statistics" element={<Statistics />} />
+          <Route path="/admin/products/edit/:id" element={<EditProduct />} />
+          <Route path="/admin/products/add" element={<AddProduct />} />
+          <Route path="/admin/products/edit/:id" element={<EditProduct />} />
+        </Route>
       </Routes>
     </Router>
   );

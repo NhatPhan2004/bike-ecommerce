@@ -16,12 +16,11 @@ const getHomePosts = async (req, res) => {
     const [rows] = await db.query(query);
     res.json(rows);
   } catch (err) {
-    console.error("❌ Lỗi getHomePosts:", err); // log full lỗi
+    console.error("❌ Lỗi getHomePosts:", err);
     res.status(500).json({ error: "Lỗi server", detail: err.message });
   }
 };
 
-// Lấy chi tiết bài viết theo slug
 const getPostBySlug = async (req, res) => {
   try {
     const { slug } = req.params;

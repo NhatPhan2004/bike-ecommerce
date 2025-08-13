@@ -22,3 +22,16 @@ export const getProfile = () =>
   axios.get(`${API}${apiRoutes.auth.profile}`, {
     headers: { Authorization: `Bearer ${getToken()}` },
   });
+
+export const changePassword = async ({
+  email,
+  currentPassword,
+  newPassword,
+}) => {
+  const res = await axios.post(`${apiRoutes}/auth/change-password`, {
+    email,
+    currentPassword,
+    newPassword,
+  });
+  return res.data;
+};

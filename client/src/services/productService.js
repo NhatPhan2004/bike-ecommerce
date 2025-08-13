@@ -1,5 +1,5 @@
 import axiosInstance from "../api/axiosInstance";
-import apiRoutes from "../api";
+import apiRoutes from "@api";
 
 const productService = {
   getAll: () => axiosInstance.get(apiRoutes.products.getAll),

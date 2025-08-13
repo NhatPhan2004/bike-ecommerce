@@ -1,0 +1,16 @@
+.adminLayout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  padding: 20px;
+  flex-shrink: 0;
+}
+
+.mainContent {
+  flex: 1;
+  padding: 20px;
+  background-color: #fffbec;
+  overflow-y: auto;
+}

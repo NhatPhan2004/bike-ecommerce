@@ -7,6 +7,10 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const total = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
 
   const fetchCart = async () => {
     setLoading(true);
@@ -35,11 +39,9 @@ export const CartProvider = ({ children }) => {
     fetchCart();
   }, []);
 
-  useEffect(() => {}, [cartItems]);
-
   return (
     <CartContext.Provider
-      value={{ cartItems, setCartItems, loading, fetchCart }}
+      value={{ cartItems, setCartItems, loading, fetchCart, total }}
     >
       {children}
     </CartContext.Provider>

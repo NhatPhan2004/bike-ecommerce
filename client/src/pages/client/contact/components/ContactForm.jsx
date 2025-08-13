@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "@style/components/contactForm.scss";
+import apiRoutes from "@api";
 
 export default function ContactForm() {
   const [form, setForm] = useState({
@@ -21,11 +22,39 @@ export default function ContactForm() {
     setLoading(true);
     setStatus("");
 
-    setTimeout(() => {
+    try {
+      const response = await fetch(
+        `${apiRoutes.base}${apiRoutes.contact.send}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(form),
+        }
+      );
+
+      if (!response.ok) {
+       
+        const text = await response.text(); 
+        console.error("❌ Backend Error:", text);
+        throw new Error("Server error");
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus("Message sent successfully!");
+        setForm({ name: "", phone: "", email: "", message: "" });
+      } else {
+        setStatus("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setStatus("An error occurred. Please try again.");
+      console.error("❌ Error in handleSubmit:", error.message);
+    } finally {
       setLoading(false);
-      setStatus("Message sent successfully!");
-      setForm({ name: "", phone: "", email: "", message: "" });
-    }, 1000);
+    }
   };
 
   return (

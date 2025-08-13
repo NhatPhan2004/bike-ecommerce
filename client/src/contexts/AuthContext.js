@@ -22,8 +22,11 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (data) => {
     const res = await loginService(data);
-    localStorage.setItem("token", res.data.token);
-    setUser(res.data.user);
+    const token = res.data.token;
+    localStorage.setItem("token", token);
+
+    const decoded = jwtDecode(token);
+    setUser({ id: decoded.id });
   };
 
   const logout = () => {

@@ -11,7 +11,14 @@ const apiRoutes = {
 
   products: {
     getAll: "/products",
+    getAllAdmin: "/products/admin",
     getById: (id) => `/products/${id}`,
+    add: "/products",
+    update: (id) => `/products/${id}`,
+    delete: (id) => `/products/${id}`,
+
+    brands: "/products/brands",
+    loaixes: "/products/loaixes",
   },
 
   posts: {
@@ -24,6 +31,14 @@ const apiRoutes = {
     login: "/auth/login",
     register: "/auth/register",
     profile: "/auth/profile",
+    logout: "/auth/logout",
+    forgotPassword: "/auth/forgot-password",
+    changePassword: "/auth/change-password",
+    adminLogin: "/auth/admin/login",
+    adminRegister: "/auth/admin/register",
+    adminProfile: "/auth/admin/profile",
+    adminForgotPassword: "/auth/admin/forgot-password",
+    adminChangePassword: "/auth/admin/change-password",
   },
 
   cart: {
@@ -31,6 +46,21 @@ const apiRoutes = {
     add: "/cart",
     update: (id) => `/cart/${id}`,
     delete: (id) => `/cart/${id}`,
+  },
+
+  contact: {
+    send: "/contact",
+  },
+
+  payment: {
+    createUrl: "/payment/create_payment_url",
+    vnpReturn: "/payment/vnpay_return",
+  },
+
+  stats: {
+    main: "/admin/stats",
+    completedOrders: "/admin/orders/completed-orders",
+    updateStatus: (id) => `/admin/orders/update-status/${id}`,
   },
 };
 

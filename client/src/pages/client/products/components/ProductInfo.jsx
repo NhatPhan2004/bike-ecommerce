@@ -14,7 +14,7 @@ const ProductInfo = ({
 }) => {
   const { user } = useAuth();
   const isLoggedIn = !!user;
-  const hasDiscount = product.flashPrice !== undefined;
+  // const hasDiscount = product.flashPrice !== undefined;
   const [quantity, setQuantity] = useState(1);
 
   const handleQtyChange = (amount) => {
@@ -107,6 +107,21 @@ const ProductInfo = ({
             />
           </>
         )}
+      </div>
+
+      <div className="product-benefits">
+        <div className="product-benefits__item">
+          <FaShippingFast className="product-benefits__icon" />
+          <p>Nationwide delivery</p>
+        </div>
+        <div className="product-benefits__item">
+          <IoIosChatbubbles className="product-benefits__icon" />
+          <p>Dedicated advice - Answering all questions</p>
+        </div>
+        <div className="product-benefits__item">
+          <IoGiftSharp className="product-benefits__icon" />
+          <p>Accumulate all products</p>
+        </div>
       </div>
     </div>
   );

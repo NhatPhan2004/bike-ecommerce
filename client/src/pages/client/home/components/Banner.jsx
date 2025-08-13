@@ -11,7 +11,7 @@ const Banner = () => {
       <section className="banner">
         <div className="banner__container">
           <div className="banner__images">
-            {/* <img src={bannerBg} alt="banner" /> */}
+        
             <img src={bicycle} alt="banner" />
 
             <div className="banner__overlay"></div>
@@ -40,7 +40,6 @@ const Banner = () => {
           </div>
         </div>
       </section>
-      ;
     </>
   );
 };

@@ -13,7 +13,7 @@ const HomeNewsSection = ({ title = "LATEST NEWS" }) => {
       .getHomePosts()
       .then((res) => setPosts(res.data))
       .catch((err) => {
-        console.error("Lỗi khi lấy dữ liệu bài viết:", err);
+        console.error("Error fetching article data:", err);
       });
   }, []);
 

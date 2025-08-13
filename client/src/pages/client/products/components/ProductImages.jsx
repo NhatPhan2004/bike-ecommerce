@@ -9,9 +9,7 @@ const ProductImage = ({ image, setImage, hinhanh }) => {
       <div className="product__main-image">
         <img src={image} alt="Main product" />
       </div>
-      <div className="product__thumbnails">
-        {/* <img src={imageUrl} onClick={() => setImage(imageUrl)} /> */}
-      </div>
+      <div className="product__thumbnails"></div>
     </div>
   );
 };

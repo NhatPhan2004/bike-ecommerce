@@ -3,7 +3,7 @@ import { getToken } from "./authService";
 import apiRoutes from "../api";
 
 export const fetchCart = async () => {
-  const token = getToken();
+  const token = localStorage.getItem("token");
   const res = await axios.get(`${apiRoutes.base}${apiRoutes.cart.get}`, {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -14,8 +14,10 @@ export const fetchCart = async () => {
 };
 
 export const addToCart = async (item) => {
-  const token = getToken();
-  return axios.post(`${apiRoutes.base}${apiRoutes.cart.get}`, item, {
+  const token = localStorage.getItem("token");
+
+  if (!token) throw new Error("No token found");
+  return axios.post(`${apiRoutes.base}${apiRoutes.cart.add}`, item, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -23,7 +25,9 @@ export const addToCart = async (item) => {
 };
 
 export const updateCartItem = async (bikeId, quantity) => {
-  const token = getToken();
+  const token = localStorage.getItem("token");
+
+  if (!token) throw new Error("No token found");
   return axios.put(
     `${apiRoutes.base}${apiRoutes.cart.update(bikeId)}`,
     { quantity },

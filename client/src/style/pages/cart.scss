@@ -1,6 +1,7 @@
 .cart {
-  padding: 20px;
-  margin-top: 80px;
+  max-width: 1440px;
+  padding: 20px 60px;
+  margin: 80px auto;
 
   &__title {
     font-size: 24px;
@@ -22,58 +23,80 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    padding: 10px;
+    padding: 20px;
     border: 1px solid #eee;
     border-radius: 12px;
-    background: #f9f9f9;
+    background: #fdfcf6;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.15);
   }
 
   &__image {
-    width: 100px;
-    height: 70px;
+    width: 130px;
+    height: 100px;
     object-fit: cover;
   }
 
   &__info {
+    font-size: 15px;
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
   }
 
   &__name {
     font-weight: 600;
+    color: #333;
   }
 
   &__color {
-    font-size: 14px;
-    color: #666;
+    color: #555;
+
+    span {
+      font-weight: bold;
+    }
   }
 
   &__quantity {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 
     button {
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
       background: #eee;
       border: none;
+      border-radius: 6px;
       font-weight: bold;
       cursor: pointer;
+      transition: background 0.2s;
+
+      &:hover {
+        background: #ccc;
+      }
     }
   }
 
   &__price {
-    color: #e53935;
+    color: #333;
     font-weight: 500;
     margin-top: 8px;
   }
 
   &__delete {
+    font-size: 16px;
     background: transparent;
     color: red;
     border: none;
     cursor: pointer;
     margin-top: 10px;
+
+    &:hover {
+      color: darkred;
+      font-weight: bold;
+    }
   }
 
   &__total {

@@ -1,0 +1,61 @@
+.customers {
+  padding: 20px;
+  min-height: 100vh;
+  margin-left: 280px;
+
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #ddd;
+
+    &-search {
+      padding: 6px;
+      width: 100%;
+      border-radius: 15px;
+    }
+  }
+
+  .title {
+    margin-bottom: 10px;
+  }
+
+  .customerTable {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+
+    th {
+      background: transparent;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+  }
+
+  .deleteButton {
+    // background: transparent;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: red;
+    padding: 3px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: rgba(196, 2, 18, 0.1);
+      color: #d62828;
+      font-size: 18px;
+    }
+  }
+}

@@ -11,6 +11,7 @@ import "@style/layouts/header.scss";
 import { useAuth } from "@contexts/AuthContext";
 import { useCart } from "@contexts/CartContext";
 import { useSearch } from "@contexts/SearchContext";
+import UserDropdown from "./UserDropdown";
 
 const Header = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -117,12 +118,7 @@ const Header = () => {
                 <AiOutlineUser />
               </div>
             )}
-            {user && (
-              <button className="header__logout" onClick={logout}>
-                Logout
-                <FiLogOut className="header__logout--icon" />
-              </button>
-            )}
+            {user && <UserDropdown />}
           </div>
         </div>
       </div>

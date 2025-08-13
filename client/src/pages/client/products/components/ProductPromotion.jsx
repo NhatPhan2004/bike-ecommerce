@@ -9,5 +9,4 @@ const ProductPromotion = () => (
     </ul>
   </div>
 );
-
 export default ProductPromotion;

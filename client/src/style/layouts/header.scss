@@ -119,6 +119,7 @@
 
     .header__cart {
       position: relative;
+
       svg {
         font-size: 22px;
       }
@@ -129,9 +130,13 @@
         right: -8px;
         background: red;
         color: white;
-        border-radius: 50%;
+        width: 16px;
+        height: 16px;
         font-size: 10px;
-        padding: 1px 4px;
+        border-radius: 45%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
 
@@ -221,36 +226,59 @@
   }
 }
 
-.header__logout {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 3px 15px;
-  background-color: #a2e0fd;
-  color: #333;
-  border: 1px solid #999;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  position: relative;
-  overflow: hidden;
-  font-family: "Poppins", sans-serif;
-
-  &:hover {
-    background-color: #70c3ef;
-    color: #898989;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-    transform: translateY(-1px);
-    font-weight: bold;
+.user-dropdown {
+  // position: relative;
+  &__menu {
+    position: absolute;
+    top: 76px;
+    right: 0;
+    background-color: #fffbec;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    padding: 10px 0;
+    width: 230px;
+    z-index: 100;
+    animation: fadeIn 0.2s ease-in-out;
   }
 
-  &:active {
-    transform: translateY(1px);
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-  }
-  &--icon {
+  &__item {
+    padding: 10px 16px;
+    cursor: pointer;
     font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.2s ease;
+    color: #333;
+
+    &:hover {
+      background-color: #dad8d8;
+      color: #6ac5f1;
+    }
+
+    &--logout {
+      color: #e74c3c;
+      font-weight: 500;
+    }
+  }
+
+  &__icon {
+    font-size: 25px;
+    color: #333;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

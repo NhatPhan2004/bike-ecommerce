@@ -34,8 +34,8 @@ exports.addToCart = async (req, res) => {
     const userId = req.user.id;
     const { bikeId, quantity, price } = req.body;
 
-    if (!bikeId || !quantity || !price)
-      return res.status(400).json({ message: "Thiếu dữ liệu gửi lên" });
+    if (!bikeId || !quantity || price == null)
+      return res.status(400).json({ message: "Lack of upload data" });
 
     const [rows] = await pool.query(
       `SELECT * FROM cart WHERE user_id = ? AND bike_id = ?`,

@@ -69,12 +69,12 @@
     padding: 8px 16px 16px;
     color: #6ac5f1;
     font-weight: 500;
-    transition: text-decoration 0.2s ease; // Smooth transition
+    transition: text-decoration 0.2s ease;
 
     &:hover {
       text-decoration: underline;
-      text-decoration-thickness: 1.5px; // Control underline thickness
-      text-underline-offset: 3px; // Space between text and underline
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 3px;
     }
   }
 
