@@ -1,12 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
+// Variables
+$font-family: "Poppins", sans-serif;
+
+$card-colors: (
+  blue: (
+    bg: #a8dadc,
+    line: #457b9d,
+    hover-bg: #81b29a,
+    hover-line: #1d3557,
+  ),
+  green: (
+    bg: #b7e4c7,
+    line: #52b788,
+    hover-bg: #99d98c,
+    hover-line: #40916c,
+  ),
+  orange: (
+    bg: #ffbe76,
+    line: #ff7b00,
+    hover-bg: #ff9f43,
+    hover-line: #e85d04,
+  ),
+  red: (
+    bg: #f08080,
+    line: #d90429,
+    hover-bg: #e76a6a,
+    hover-line: #b7094c,
+  ),
+);
+
+$breakpoints: (
+  desktop-xl: 1920px,
+  desktop: 1440px,
+  laptop: 1024px,
+  tablet: 768px,
+  mobile-lg: 600px,
+  mobile: 480px,
+);
+
+// Mixin for media queries
+@mixin respond($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
 .dashboard {
+  font-family: $font-family;
   display: flex;
   min-height: 100vh;
 
   &__main {
     flex: 1;
-    padding: 20px;
+    padding: 10px 20px;
     background: #fffbec;
     margin-left: 280px;
   }
@@ -14,15 +63,21 @@
   &__topbar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background: #f8f9fa;
     padding: 10px;
     border-bottom: 1px solid #ddd;
 
     &-search {
-      padding: 6px;
       width: 100%;
+      padding: 6px;
       border-radius: 15px;
+      border: 1px solid #ccc;
+      outline: none;
+
+      &:focus {
+        border-color: #457b9d;
+        box-shadow: 0 0 5px rgba(69, 123, 157, 0.3);
+      }
     }
   }
 
@@ -31,77 +86,157 @@
   }
 
   &__cards {
-    display: flex;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
     margin: 30px 0;
+
+    @include respond(laptop) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include respond(mobile-lg) {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
   }
 
   &__card {
+    position: relative;
     flex: 1;
-    padding: 15px;
     color: #000;
-    font-size: 20px;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     border-radius: 15px;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    padding: 15px 15px 5px 30px;
 
-    &--blue {
-      background: #a8dadc;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 15%;
+      bottom: 15%;
+      width: 4px;
+      border-radius: 10px;
+      transition: background-color 0.2s;
+      left: 20px;
     }
 
-    &--green {
-      background: #b7e4c7;
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
     }
 
-    &--orange {
-      background: #ffbe76;
+    @each $name, $colors in $card-colors {
+      &--#{$name} {
+        background: map-get($colors, bg);
+
+        &::before {
+          background-color: map-get($colors, line);
+        }
+
+        &:hover {
+          background: map-get($colors, hover-bg);
+          &::before {
+            background-color: map-get($colors, hover-line);
+          }
+        }
+      }
     }
 
-    &--red {
-      background: #f08080;
+    @include respond(desktop-xl) {
+      font-size: 24px;
+      padding: 20px 20px 20px 35px;
+    }
+    @include respond(desktop) {
+      font-size: 20px;
+      padding: 20px 20px 20px 23px;
+      &::before {
+        left: 10px;
+      }
+    }
+    @include respond(tablet) {
+      font-size: 18px;
+      padding: 15px 15px 15px 25px;
+    }
+    @include respond(mobile) {
+      font-size: 16px;
+      padding: 12px 12px 12px 20px;
     }
   }
 
   &__table {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
+    background: #fefefe;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
 
     th,
     td {
       padding: 10px;
       text-align: left;
       border-bottom: 1px solid #ccc;
+      font-size: 15px;
+
+      @include respond(mobile) {
+        font-size: 12px;
+        padding: 8px;
+      }
+      @media (max-width: 1920px) {
+        font-size: 18px;
+      }
+      @media (max-width: 1440px) {
+        font-size: 16px;
+      }
+    }
+
+    th {
+      background: #f1f3f5;
+      font-weight: 600;
+
+      @media (max-width: 1920px) {
+        font-size: 18px;
+      }
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    @include respond(tablet) {
+      display: block;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
     }
   }
 
   &__status {
-    padding: 4px 8px;
-    border-radius: 12px;
     font-size: 13px;
 
     &--paid {
       background: #ffe5b4;
       color: #a85b00;
+      padding: 4px 8px;
+      border-radius: 12px;
     }
-
     &--cancelled {
       background: #ffc9c9;
-      padding: 4px 8px;
-      border-radius: 8px;
       color: #b71c1c;
+      padding: 4px 8px;
+      border-radius: 12px;
     }
-
     &--shipping {
       background: #d4f4dd;
       color: #15803d;
+      padding: 4px 8px;
+      border-radius: 12px;
     }
-
     &--delivered {
       background: #caffbf;
       color: #0b3d0b;
-      padding: 4px 8px;
-      border-radius: 8px;
+      padding: 4px 10px;
+      border-radius: 12px;
     }
   }
 }

@@ -17,7 +17,7 @@ import CheckoutAddress from "../pages/client/cart/ShippingInfo";
 import Contact from "../pages/client/contact/Contact";
 import ProductList from "../pages/client/products/ProductList";
 import ProductDetail from "../pages/client/products/ProductDetail";
-import PaymentSuccess from "../pages/client/cart/Payment";
+import PaymentSuccess from "../pages/client/cart/PaymentSuccess";
 
 // Pages - Admin
 import AdminLogin from "../pages/admin/AdminLogin/AdminLogin";
@@ -65,9 +65,9 @@ const AppRoutes = () => {
           <Route path="orders" element={<Orders />} />
           <Route path="customers" element={<Customers />} />
           <Route path="statistics" element={<Statistics />} />
-          <Route path="/admin/products/edit/:id" element={<EditProduct />} />
-          <Route path="/admin/products/add" element={<AddProduct />} />
-          <Route path="/admin/products/edit/:id" element={<EditProduct />} />
+          <Route path="products/edit/:id" element={<EditProduct />} />
+          <Route path="products/add" element={<AddProduct />} />
+          <Route path="products/edit/:id" element={<EditProduct />} />
         </Route>
       </Routes>
     </Router>

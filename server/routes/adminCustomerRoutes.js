@@ -5,11 +5,12 @@ const pool = require("../config/database");
 router.get("/", async (req, res) => {
   try {
     const [rows] = await pool.execute(
-      `SELECT User_id, Hoten, Email, Diachi, Sdt FROM user`
+      `SELECT User_id, Hoten, Email, Diachi, Sdt 
+       FROM user 
+       WHERE role = 0`
     );
     res.json(rows);
   } catch (err) {
-    console.error("Customer Acquisition Error:", err);
     res.status(500).json({ message: "Error server" });
   }
 });
@@ -25,7 +26,6 @@ router.delete("/:id", async (req, res) => {
     }
     res.json({ message: "Successful customer removal" });
   } catch (err) {
-    console.error("Customer deletion error:", err);
     res.status(500).json({ message: "Error server" });
   }
 });

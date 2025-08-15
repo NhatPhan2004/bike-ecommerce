@@ -36,7 +36,6 @@ const ProductList = () => {
     axios
       .get(`${apiRoutes.base}${apiRoutes.products.getAllAdmin}`)
       .then((res) => {
-        console.log("API response data:", res.data);
         setProducts(res.data.products || res.data);
       })
       .catch((err) => console.error("Lỗi tải sản phẩm:", err));

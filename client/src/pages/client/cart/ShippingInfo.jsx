@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaShippingFast } from "react-icons/fa";
 import CartSteps from "./components/CartSteps";
 import citiesData from "@data/citiesData";
 import { useCart } from "@contexts/CartContext";
+import { useAuth } from "../../../contexts/AuthContext";
 import apiRoutes from "@api";
 import "@style/pages/shippingInfo.scss";
 import "@style/components/cartSummary.scss";
@@ -12,9 +13,8 @@ import axios from "axios";
 const CheckoutAddress = () => {
   const navigate = useNavigate();
   const { cartItems, total } = useCart();
+  const { user } = useAuth();
   const [note, setNote] = useState("");
-  const subtotal = total;
-  const discount = 0;
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -22,6 +22,7 @@ const CheckoutAddress = () => {
     city: "",
     district: "",
     address: "",
+    email: "",
   });
 
   const handleChange = (e) => {
@@ -42,11 +43,16 @@ const CheckoutAddress = () => {
       return;
     }
 
+    if (!user?.id) {
+      alert("You must be logged in to proceed.");
+      return;
+    }
+
     console.log("✅ Delivery info submitted:", formData);
 
     const amount = Math.round(total || 10000);
     const orderId = Date.now().toString();
-    const userId = fullName + "_" + phone;
+    const userId = user.id;
 
     try {
       const res = await axios.post(
@@ -55,6 +61,14 @@ const CheckoutAddress = () => {
           amount,
           orderId,
           userId,
+          fullName,
+          phone,
+          city,
+          district,
+          address,
+          email,
+          note,
+          cartItems,
         }
       );
 
@@ -62,7 +76,7 @@ const CheckoutAddress = () => {
         window.location.href = res.data.paymentUrl;
       }
     } catch (err) {
-      console.error("Payment error:", err);
+      console.error("Payment error:", err.response?.data || err.message);
       alert("Failed to initiate payment.");
     }
   };
@@ -70,24 +84,6 @@ const CheckoutAddress = () => {
   const handleBackCart = () => {
     window.scrollTo({ top: 0 });
     navigate("/cart");
-  };
-  const createVnpayPayment = async (amount, orderId, userId) => {
-    try {
-      const res = await axios.post(
-        `${apiRoutes.base}${apiRoutes.payment.createUrl}`,
-        {
-          amount,
-          orderId,
-          userId,
-        }
-      );
-
-      if (res.data?.paymentUrl) {
-        window.location.href = res.data.paymentUrl;
-      }
-    } catch (err) {
-      console.error("Payment error:", err);
-    }
   };
 
   const cityOptions = Object.keys(citiesData);
@@ -166,6 +162,7 @@ const CheckoutAddress = () => {
               </select>
             </div>
           </div>
+
           <div className="checkout-address__group">
             <label>Email</label>
             <input
@@ -202,13 +199,14 @@ const CheckoutAddress = () => {
             </button>
           </div>
         </form>
+
         <div className="checkout-address__right">
           <div className="orderSummary">
             <div className="orderSummary__title">ORDER SUMMARY</div>
 
             <div className="orderSummary__row">
               <span>Subtotal</span>
-              <span>{subtotal.toLocaleString()}₫</span>
+              <span>{total.toLocaleString()}₫</span>
             </div>
 
             <div className="orderSummary__row">
@@ -240,7 +238,7 @@ const CheckoutAddress = () => {
             <button
               type="button"
               className="btn btn--primary"
-              onClick={(e) => handleSubmit(e)}
+              onClick={handleSubmit}
             >
               Proceed to Payment
             </button>

@@ -2,6 +2,7 @@ import React from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { addToCart } from "@services/cartService";
 import { useCart } from "@/contexts/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const AddToCartButton = ({
   product,
@@ -12,6 +13,7 @@ const AddToCartButton = ({
 }) => {
   const { user } = useAuth();
   const { fetchCart } = useCart();
+  const navigate = useNavigate();
 
   const handleAction = async () => {
     if (!user) {
@@ -29,8 +31,12 @@ const AddToCartButton = ({
       await addToCart(item);
       await fetchCart();
       console.log("✅ Added to the cart:", item);
+
+      if (type === "buy") {
+        navigate("/address");
+      }
     } catch (err) {
-      console.error("❌ Add cartoon error:", err.message);
+      console.error("❌ Add to cart error:", err.message);
     }
   };
 

@@ -1,11 +1,9 @@
+// server/routes/paymentRoutes.js
 const express = require("express");
 const router = express.Router();
-const {
-  createPaymentUrl,
-  vnpayReturn,
-} = require("../controllers/paymentController");
+const paymentController = require("../controllers/paymentController");
 
-router.post("/create_payment_url", createPaymentUrl);
-router.get("/vnpay_return", vnpayReturn);
+router.post("/create_payment_url", paymentController.createPaymentUrl);
+router.get("/vnpay_return", paymentController.vnpayReturn);
 
 module.exports = router;

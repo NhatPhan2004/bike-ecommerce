@@ -134,7 +134,7 @@ exports.forgotPassword = async (req, res) => {
 
 exports.changePassword = async (req, res) => {
   const { currentPassword, newPassword } = req.body;
-  const userId = req.user.id; // <-- Lấy từ token
+  const userId = req.user.id;
 
   if (!currentPassword || !newPassword) {
     return res.status(400).json({ message: "Missing required fields" });

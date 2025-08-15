@@ -16,6 +16,7 @@ const adminRoutes = require("./routes/adminRoutes");
 const orderRoutes = require("./routes/adminOrderRoutes");
 const PORT = process.env.PORT || 5000;
 const adminCustomerRoutes = require("./routes/adminCustomerRoutes");
+const statisticsRoutes = require("./routes/statisticsRoutes");
 
 const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
 
@@ -51,6 +52,8 @@ app.use("/api/admin/stats", adminStatsRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/admin/orders", orderRoutes);
 app.use("/api/admin/customers", adminCustomerRoutes);
+app.use("/api/admin/statistics", statisticsRoutes);
+
 app.use(
   "/uploads/images",
   express.static(path.join(__dirname, "uploads/images"))

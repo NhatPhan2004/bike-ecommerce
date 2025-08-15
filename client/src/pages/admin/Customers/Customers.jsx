@@ -9,7 +9,6 @@ import SplitType from "split-type";
 const Customers = () => {
   const [customers, setCustomers] = useState([]);
   const [searchKeyword, setSearchKeyword] = useState("");
-  const [search, setSearch] = useState("");
   const titleRef = useRef(null);
 
   useEffect(() => {
@@ -64,8 +63,8 @@ const Customers = () => {
         <input
           type="text"
           placeholder="Search..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value.toLowerCase())}
+          value={searchKeyword}
+          onChange={(e) => setSearchKeyword(e.target.value.toLowerCase())}
           className={styles["topbar-search"]}
         />
       </div>

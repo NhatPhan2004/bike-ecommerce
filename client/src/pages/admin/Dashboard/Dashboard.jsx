@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./Dashboard.module.scss";
 import apiRoutes from "@api";
-import { formatDateVN } from "../../../utils/formatDate";
+import { formatDateVN } from "@utils/formatDate";
 import axios from "axios";
 import anime from "animejs";
 import SplitType from "split-type";
@@ -107,7 +107,7 @@ const AdminDashboard = () => {
             <div
               className={`${styles["dashboard__card"]} ${styles["dashboard__card--orange"]}`}
             >
-              👥 <strong>{stats.customers}</strong>
+              👥 <strong>{stats.users}</strong>
               <br />
               Customers
             </div>

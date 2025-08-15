@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./Orders.module.scss";
 import apiRoutes from "@api";
-import { formatDateVN } from "../../../utils/formatDate";
+import { formatDateVN } from "@utils/formatDate";
 import anime from "animejs";
 import SplitType from "split-type";
 
@@ -14,8 +14,8 @@ const statusColorMap = {
 
 const Orders = ({ onCompletedUpdate }) => {
   const [orders, setOrders] = useState([]);
-  const [search, setSearch] = useState("");
   const titleRef = useRef(null);
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   const fetchPendingOrders = () => {
     const token = localStorage.getItem("token");
@@ -50,7 +50,7 @@ const Orders = ({ onCompletedUpdate }) => {
   useEffect(() => {
     fetchPendingOrders();
   }, []);
-
+  const handleSearch = (e) => setSearchKeyword(e.target.value.toLowerCase());
   const handleStatusChange = async (orderId, status) => {
     try {
       const token = localStorage.getItem("token");
@@ -88,9 +88,9 @@ const Orders = ({ onCompletedUpdate }) => {
   };
 
   const filteredOrders = orders.filter((order) =>
-    `${order.id}${order.customerName || ""}${order.status}`
+    `${order.id}${order.name || ""}${order.status}`
       .toLowerCase()
-      .includes(search.toLowerCase())
+      .includes(searchKeyword)
   );
 
   return (
@@ -99,8 +99,8 @@ const Orders = ({ onCompletedUpdate }) => {
         <input
           type="text"
           placeholder="Search..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={searchKeyword}
+          onChange={(e) => setSearchKeyword(e.target.value.toLowerCase())}
           className={styles["topbar-search"]}
         />
       </div>

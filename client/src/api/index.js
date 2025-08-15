@@ -62,6 +62,10 @@ const apiRoutes = {
     completedOrders: "/admin/orders/completed-orders",
     updateStatus: (id) => `/admin/orders/update-status/${id}`,
   },
+
+  statistics: {
+    statistics: "/admin/statistics",
+  },
 };
 
 export default apiRoutes;
