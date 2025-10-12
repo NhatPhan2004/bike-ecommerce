@@ -11,14 +11,13 @@ const Banner = () => {
       <section className="banner">
         <div className="banner__container">
           <div className="banner__images">
-        
             <img src={bicycle} alt="banner" />
 
             <div className="banner__overlay"></div>
           </div>
 
           <div className="banner__content">
-            <div className="banner__title">Conquer all roads</div>
+            <div className="banner__title">CHINH PHỤC MỌI NẺO ĐƯỜNG</div>
 
             <div className="banner__line">
               <span className="banner__icon">
@@ -27,14 +26,16 @@ const Banner = () => {
             </div>
 
             <div className="banner__subtitle">
-              "A bicycle is more than just a means of transport – it's your
-              companion on every journey. We bring you an exceptional cycling
-              experience that's safe, inspiring, and full of life."
+              "Xe đạp không chỉ là phương tiện di chuyển – nó là người bạn đồng
+              hành của bạn trên mọi hành trình. Chúng tôi mang đến cho bạn trải
+              nghiệm đạp xe đặc biệt, an toàn, truyền cảm hứng và tràn đầy sức
+              sống."
             </div>
 
             <div className="btn-section">
               <Link to="/contact" className="btn-section__btn">
-                Shop now
+                {/* Shop now */}
+                Liên hệ
               </Link>
             </div>
           </div>

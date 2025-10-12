@@ -31,13 +31,13 @@ const ProductDetail = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id]);
 
-  if (!product) return <p>Loading products...</p>;
+  if (!product) return <p>Đang tải sản phẩm...</p>;
 
   return (
     <>
       <div className="product__location">
         <Link to="/products" className="product__location-back">
-          Products /{" "}
+          Sản phẩm /{" "}
         </Link>{" "}
         {""}
         {product.tenxe}

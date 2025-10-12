@@ -5,7 +5,7 @@ import "@style/pages/news.scss";
 import postService from "@services/postService";
 import apiRoutes from "@api";
 
-const HomeNewsSection = ({ title = "LATEST NEWS" }) => {
+const HomeNewsSection = ({ title = "TIN TỨC MỚI NHẤT" }) => {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -35,16 +35,16 @@ const HomeNewsSection = ({ title = "LATEST NEWS" }) => {
                   <FaCalendarAlt />{" "}
                   {new Date(post.created_at).toLocaleDateString("vi-VN")}
                 </span>
-                <span>{post.read_time} min read</span>
+                <span>{post.read_time} phút đọc</span>
               </div>
               <p className="home-news__excerpt">{post.excerpt}</p>
               <Link className="home-news__link" to={`/news/${post.slug}`}>
-                Read more
+                Đọc tiếp
               </Link>
             </div>
           ))
         ) : (
-          <p>Loading news...</p>
+          <p>Đang tải tin tức...</p>
         )}
       </div>
     </section>

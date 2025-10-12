@@ -17,7 +17,9 @@ const ProductCard = ({ product, hidePrice = false }) => {
 
   if (!product || !product.hinhanh) {
     return (
-      <div className="product-card error">Product has no image information</div>
+      <div className="product-card error">
+        Sản phẩm không có thông tin hình ảnh
+      </div>
     );
   }
 

@@ -5,6 +5,7 @@
   margin: 20px auto;
   font-size: 18px;
   text-align: justify;
+  font-family: var(--font);
 
   &__nav {
     display: flex;
@@ -35,7 +36,7 @@
   }
 
   &__body {
-    font-size: 16px;
+    font-size: 18px;
     line-height: 1.7;
     color: #333;
     padding: 10px;

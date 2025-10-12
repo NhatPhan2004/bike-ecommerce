@@ -13,7 +13,7 @@ const CartSteps = ({ currentStep = 1 }) => {
             <div className="cart-step__circle">
               <FiShoppingCart />
             </div>
-            <p className="cart-step__label">Cart</p>
+            <p className="cart-step__label">Giỏ hàng</p>
           </div>
 
           <div className="cart-step__line"></div>
@@ -24,7 +24,7 @@ const CartSteps = ({ currentStep = 1 }) => {
             <div className="cart-step__circle">
               <FiMapPin />
             </div>
-            <p className="cart-step__label">Address</p>
+            <p className="cart-step__label">Địa chỉ</p>
           </div>
 
           <div className="cart-step__line"></div>
@@ -35,7 +35,7 @@ const CartSteps = ({ currentStep = 1 }) => {
             <div className="cart-step__circle">
               <FiCreditCard />
             </div>
-            <p className="cart-step__label">Pay</p>
+            <p className="cart-step__label">Thanh toán</p>
           </div>
         </div>
       </div>

@@ -1,3 +1,7 @@
+:root {
+  --font: "Be Vietnam Pro", sans-serif;
+}
+
 // Banner
 .banner {
   position: relative;
@@ -89,7 +93,8 @@
   }
 
   &__title {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: 35px;
+    font-family: var(--font);
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 50px;
@@ -140,14 +145,16 @@
   }
 
   &__subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: 20px;
     margin-bottom: 2rem;
     color: #ddd;
     opacity: 0;
+    font-family: var(--font);
+    text-align: justify;
     transform: translateY(50px);
     animation: slideUp 1s ease forwards;
     animation-delay: 0.5s;
-    max-width: 80%;
+    max-width: 73%;
     line-height: 1.6;
 
     @media (max-width: 768px) {
@@ -221,6 +228,7 @@
     margin: 80px auto;
     gap: 4rem;
     align-items: center;
+    font-family: var(--font);
 
     @media (max-width: 992px) {
       flex-direction: column;

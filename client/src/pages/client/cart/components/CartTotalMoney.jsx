@@ -17,33 +17,33 @@ const CartSummary = ({ total, cartItems }) => {
 
   return (
     <div className="summary">
-      <div className="summary__title">TOTAL MONEY CART MONEY</div>
+      <div className="summary__title">TỔNG TIỀN GIỎ HÀNG</div>
 
       <div className="summary__row">
-        <span>TOTAL PRODUCT</span>
+        <span>TỔNG SẢN PHẨM</span>
         <span>{totalQuantity}</span>
       </div>
 
       <div className="summary__row">
-        <span>TOTAL MONEY</span>
+        <span>TỔNG TIỀN HÀNG</span>
         <span>{total.toLocaleString()}₫</span>
       </div>
 
       <div className="summary__row summary__row--highlight">
-        <span>TEMPORARY</span>
+        <span>TẠM TÍNH</span>
         <span>{total.toLocaleString()}₫</span>
       </div>
 
       <div className="summary__note">
-        Free ship for orders from 3,000,000 VND
+        Miễn phí Ship cho đơn hàng từ 3,000,000 VND
       </div>
 
       <div className="summary__buttons">
-        <button onClick={handleContinueShopping}>CONTINUE SHOPPING</button>
-        <button onClick={handleCheckout}>PAY</button>
+        <button onClick={handleContinueShopping}>TIẾP TỤC MUA SẮM</button>
+        <button onClick={handleCheckout}>THANH TOÁN</button>
       </div>
 
-      <div className="summary__account">BLUESOLIS BIKE ACCOUNT</div>
+      <div className="summary__account">TÀI KHOẢN BLUESOLIS BIKE </div>
     </div>
   );
 };

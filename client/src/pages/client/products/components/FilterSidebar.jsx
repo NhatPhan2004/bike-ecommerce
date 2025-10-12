@@ -3,7 +3,7 @@ import "@style/components/filterSidebar.scss";
 const filters = [
   {
     type: "brand",
-    title: "BRAND",
+    title: "THƯƠNG HIỆU",
     options: [
       { label: "MARTIN", value: "Martin" },
       { label: "ASAMA", value: "Asama" },
@@ -14,21 +14,21 @@ const filters = [
 
   {
     type: "color",
-    title: "COLOR",
+    title: "MÀU SẮC",
     options: [
-      { label: "Black", value: "Black" },
-      { label: "White", value: "White" },
-      { label: "Other", value: "Other" },
+      { label: "Đen", value: "Black" },
+      { label: "Trắng", value: "White" },
+      { label: "Khác", value: "Other" },
     ],
   },
   {
     type: "price",
-    title: "PRICE LEVEL",
+    title: "MỨC GIÁ",
     options: [
-      { label: "Price under 5,000,000₫", value: "under-5m" },
+      { label: "Giá dưới 5,000,000₫", value: "under-5m" },
       { label: "10,000,000₫ - 15,000,000₫", value: "10m-15m" },
       { label: "15,000,000₫ - 20,000,000₫", value: "15m-20m" },
-      { label: "Price above 20,000,000₫", value: "above-20m" },
+      { label: "Giá trên 20,000,000₫", value: "above-20m" },
     ],
   },
 ];

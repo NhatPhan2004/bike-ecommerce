@@ -54,7 +54,7 @@ const Header = () => {
                   }
                   onClick={handleMenuItemClick}
                 >
-                  Home
+                  Trang chủ
                 </NavLink>
               </li>
               <li>
@@ -65,7 +65,7 @@ const Header = () => {
                   }
                   onClick={handleMenuItemClick}
                 >
-                  Products
+                  Sản phẩm
                 </NavLink>
               </li>
               <li>
@@ -87,7 +87,7 @@ const Header = () => {
                   }
                   onClick={handleMenuItemClick}
                 >
-                  Shop
+                  Cửa hàng
                 </NavLink>
               </li>
             </ul>

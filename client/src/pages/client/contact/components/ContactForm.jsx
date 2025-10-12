@@ -35,8 +35,7 @@ export default function ContactForm() {
       );
 
       if (!response.ok) {
-       
-        const text = await response.text(); 
+        const text = await response.text();
         console.error("❌ Backend Error:", text);
         throw new Error("Server error");
       }
@@ -59,10 +58,10 @@ export default function ContactForm() {
 
   return (
     <form className="contact-form" onSubmit={handleSubmit}>
-      <h2 className="contact-form__title">GET IN TOUCH</h2>
+      <h2 className="contact-form__title">LIÊN LẠC</h2>
 
       <div className="contact-form__field">
-        <label htmlFor="name">Name*</label>
+        <label htmlFor="name">Họ và tên*</label>
         <input
           type="text"
           id="name"
@@ -74,7 +73,7 @@ export default function ContactForm() {
       </div>
 
       <div className="contact-form__field">
-        <label htmlFor="phone">Phone Number*</label>
+        <label htmlFor="phone">Số điện thoại*</label>
         <input
           type="text"
           id="phone"
@@ -98,7 +97,7 @@ export default function ContactForm() {
       </div>
 
       <div className="contact-form__field">
-        <label htmlFor="message">Your Message*</label>
+        <label htmlFor="message">Tin nhắn của bạn*</label>
         <textarea
           id="message"
           name="message"
@@ -110,7 +109,7 @@ export default function ContactForm() {
       </div>
 
       <button type="submit" className="contact-form__button" disabled={loading}>
-        {loading ? "Sending..." : "SEND MESSAGE"}
+        {loading ? "Sending..." : "GỬI TIN NHẮN"}
       </button>
 
       {status && (

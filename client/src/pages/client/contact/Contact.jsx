@@ -8,11 +8,12 @@ import GoogleMap from "./components/GoogleMap";
 export default function ContactPage() {
   return (
     <section className="contact-page">
-      <h1 className="contact-page__heading">CONTACT ME</h1>
+      <h1 className="contact-page__heading">LIÊN HỆ TÔI</h1>
 
       <p className="contact-page__description">
-        If you have any questions, please feel free to get in touch with me via
-        phone, text, email, the form below, or even on social media!
+        Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với tôi qua điện thoại,
+        tin nhắn, email, biểu mẫu bên dưới hoặc thậm chí trên phương tiện truyền
+        thông xã hội!
       </p>
 
       <div className="contact-page__layout">

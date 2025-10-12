@@ -28,22 +28,22 @@ const NewsDetail = ({ title = "RELATED NEWS" }) => {
   }, [slug]);
 
   if (loading) return <p>Loading...</p>;
-  if (!post) return <p>Article not found.</p>;
+  if (!post) return <p>Không tìm thấy bài viết.</p>;
 
   return (
     <section className="news-detail">
       <p className="news-detail__location">
-        <span>Home / News</span> / {post.title}
+        <span>Trang chủ / Tin tức</span> / {post.title}
       </p>
       <div className="news-detail__container">
         <h1 className="news-detail__title">{post.title}</h1>
         <div className="news-detail__meta">
           <p>
-            <strong>Date:</strong>{" "}
+            <strong>Ngày:</strong>{" "}
             {new Date(post.created_at).toLocaleDateString("vi-VN")}
           </p>
           <p>
-            <strong>Read time:</strong> {post.read_time} minute
+            <strong>Thời gian đọc:</strong> {post.read_time} phút
           </p>
         </div>
         <img
@@ -58,7 +58,7 @@ const NewsDetail = ({ title = "RELATED NEWS" }) => {
         ></div>
       </div>
       <div className="new-detail__related">
-        <HomeNewsSection title="RELATED NEWS" />
+        <HomeNewsSection title="TIN LIÊN QUAN" />
       </div>
     </section>
   );

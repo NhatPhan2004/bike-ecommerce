@@ -9,6 +9,7 @@
   z-index: 1;
   height: calc(100vh - 100px);
   overflow-y: auto;
+  font-family: var(--font);
 
   @media (max-width: 1920px) {
     position: sticky;

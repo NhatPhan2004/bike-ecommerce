@@ -36,7 +36,7 @@ const ProductSlider = ({}) => {
   return (
     <div className="product-slider">
       <div className="product-slider__container">
-        <h2 className="product-slider__title">PRODUCT CATALOG</h2>
+        <h2 className="product-slider__title">DANH MỤC SẢN PHẨM</h2>
         <div className="product-slider__line">
           <span className="product-slider__icon">
             <GiCartwheel className="wheel-icon" />

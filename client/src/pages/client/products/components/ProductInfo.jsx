@@ -67,18 +67,18 @@ const ProductInfo = ({
       </div>
 
       <div className="product__promotion-box">
-        <strong>🎁 PROMOTION - DEALS</strong>
+        <strong>🎁 KHUYẾN MÃI - ƯU ĐÃI</strong>
         <ul>
-          <li>Free Shipping for Orders from 300,000₫</li>
-          <li>30-Day Return Policy</li>
-          <li>Loyalty Points Program</li>
+          <li>Miễn phí Ship cho đơn hàng từ 300,000₫.</li>
+          <li>Đổi trả trong 30 ngày nếu sản phẩm lỗi bất kì.</li>
+          <li>Chương trình tích điểm cho khách hàng thân thiết.</li>
         </ul>
       </div>
 
       <div className="product__buy-section">
         {!isLoggedIn ? (
           <button className="product__buy-login-btn" onClick={onShowLogin}>
-            SIGN IN TO PURCHASE
+            ĐĂNG NHẬP ĐỂ MUA HÀNG
           </button>
         ) : (
           <>
@@ -112,15 +112,15 @@ const ProductInfo = ({
       <div className="product-benefits">
         <div className="product-benefits__item">
           <FaShippingFast className="product-benefits__icon" />
-          <p>Nationwide delivery</p>
+          <p>Giao hàng toàn quốc.</p>
         </div>
         <div className="product-benefits__item">
           <IoIosChatbubbles className="product-benefits__icon" />
-          <p>Dedicated advice - Answering all questions</p>
+          <p>Tư vấn tận tình – Giải đáp mọi thắc mắc.</p>
         </div>
         <div className="product-benefits__item">
           <IoGiftSharp className="product-benefits__icon" />
-          <p>Accumulate all products</p>
+          <p>Tích điểm tất cả sản phẩm.</p>
         </div>
       </div>
     </div>

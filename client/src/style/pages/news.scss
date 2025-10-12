@@ -2,6 +2,7 @@
 .home-news {
   padding: 40px 0;
   background: #fffbec;
+  font-family: var(--font);
 
   &__title {
     font-size: 32px;
@@ -42,6 +43,7 @@
   &__headline {
     font-size: 16px;
     font-weight: bold;
+    text-align: justify;
     padding: 12px;
     line-height: 1.4;
     color: #333;
@@ -61,6 +63,7 @@
     padding: 0 16px;
     color: #444;
     margin-bottom: 8px;
+    text-align: justify;
   }
 
   &__link {

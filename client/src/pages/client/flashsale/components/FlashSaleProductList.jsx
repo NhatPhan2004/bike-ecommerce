@@ -8,7 +8,7 @@ const FlashSaleProductList = ({ products }) => {
   if (!products || products.length === 0) {
     return (
       <p className="flashsale-page__no-result">
-        Can not find the right product.
+        Không thể tìm thấy sản phẩm phù hợp.
       </p>
     );
   }

@@ -30,13 +30,13 @@ const AddToCartButton = ({
     try {
       await addToCart(item);
       await fetchCart();
-      console.log("✅ Added to the cart:", item);
+      console.log("✅ Đã thêm sản phẩm vào giỏ hàng:", item);
 
       if (type === "buy") {
         navigate("/address");
       }
     } catch (err) {
-      console.error("❌ Add to cart error:", err.message);
+      console.error("❌ Lỗi thêm vào giỏ hàng:", err.message);
     }
   };
 
@@ -45,7 +45,7 @@ const AddToCartButton = ({
       className={`product__btn ${type === "add" ? "add" : "buy"} ${className}`}
       onClick={handleAction}
     >
-      {type === "add" ? "ADD TO CART" : "BUY NOW"}
+      {type === "add" ? "THÊM VÀO GIỎ HÀNG" : "MUA NGAY"}
     </button>
   );
 };

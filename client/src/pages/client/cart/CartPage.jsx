@@ -17,7 +17,7 @@ const CartPage = () => {
 
   const handleDelete = async (bikeId) => {
     const confirmDelete = window.confirm(
-      "Are you sure you want to delete this product from the cart?"
+      "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng không?"
     );
     if (!confirmDelete) return;
     await deleteCartItem(bikeId);
@@ -28,7 +28,7 @@ const CartPage = () => {
     <div className="cart">
       <CartSteps currentStep={1} />
       {cartItems.length === 0 ? (
-        <p className="cart__empty">There is no product in the basket.</p>
+        <p className="cart__empty">Không có sản phẩm trong giỏ hàng.</p>
       ) : (
         <div className="cart-page">
           <div className="cart-page__content">
@@ -44,7 +44,7 @@ const CartPage = () => {
                     <div className="cart__info">
                       <h3 className="cart__name">{item.tenxe}</h3>
                       <p className="cart__color">
-                        Color: <span>{item.mausac}</span>
+                        Màu sắc: <span>{item.mausac}</span>
                       </p>
                       <div className="cart__quantity">
                         <button

@@ -5,7 +5,6 @@ import flashsaleData from "../../../data/flashsaleData";
 import FlashSaleBanner from "./components/FlashSaleBanner";
 import FlashSaleProductList from "./components/FlashSaleProductList";
 import "@style/pages/flashsale.scss";
-import { flashsaleIntro_001 } from "@assets/images";
 
 const FlashSalePage = () => {
   const [products, setProducts] = useState([]);
@@ -87,10 +86,6 @@ const FlashSalePage = () => {
   return (
     <div className="flashsale-page">
       <FlashSaleBanner />
-
-      <div className="flashsale-page__introduce">
-        <img src={flashsaleIntro_001} alt="flashsaleIntro" />
-      </div>
 
       <div className="flashsale-page__content container">
         <div className="flashsale-page__filter">

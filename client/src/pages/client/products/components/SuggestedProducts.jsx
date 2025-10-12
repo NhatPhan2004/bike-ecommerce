@@ -42,9 +42,7 @@ const SuggestedProducts = ({ currentProduct }) => {
 
   return (
     <div className="suggested-products">
-      <h2 className="suggested-products__title">
-        PRODUCTS IN THE SAME SEGMENT
-      </h2>
+      <h2 className="suggested-products__title">SẢN PHẨM CÙNG PHÂN KHÚC</h2>
       <div className="suggested-products__list">
         {suggested.map((product) => (
           <ProductCard key={product.bike_id} product={product} />

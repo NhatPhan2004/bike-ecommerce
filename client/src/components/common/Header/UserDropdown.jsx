@@ -45,7 +45,7 @@ const UserDropdown = () => {
               onClick={() => handleSelect("orders")}
               role="menuitem"
             >
-              📦 My Orders
+              📦 Đơn hàng của tôi
             </div>
             <div
               className="user-dropdown__item"
@@ -55,7 +55,7 @@ const UserDropdown = () => {
               }}
               role="menuitem"
             >
-              🔐 Change Password
+              🔐 Đổi mật khẩu
             </div>
 
             <div
@@ -63,7 +63,7 @@ const UserDropdown = () => {
               onClick={() => handleSelect("logout")}
               role="menuitem"
             >
-              🚪 Logout
+              🚪 Đăng xuất
               <FiLogOut className="user-dropdown__icon" />
             </div>
           </div>

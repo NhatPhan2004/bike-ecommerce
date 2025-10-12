@@ -13,7 +13,7 @@ const ProductPrice = ({ price }) => {
       </span>
       <span className="product__price--discount">-30%</span>
       <span className="product__price--savings">
-        Savings: {savings.toLocaleString("vi-VN")}đ
+        Tiết kiệm: {savings.toLocaleString("vi-VN")}đ
       </span>
     </div>
   );

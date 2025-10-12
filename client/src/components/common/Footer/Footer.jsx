@@ -20,34 +20,34 @@ const Footer = () => {
         </div>
         <div className="footer__column">
           <ul>
-            <li>SHOP</li>
-            <li>CONTACT</li>
-            <li>CUSTOMER SUPPOST</li>
-            <li>FREQUENTLY ASKED QUESTIONS</li>
+            <li>CỬA HÀNG</li>
+            <li>LIÊN HỆ</li>
+            <li>HỖ TRỢ KHÁCH HÀNG</li>
+            <li>NHỮNG CÂU HỎI THƯỜNG GẶP</li>
           </ul>
         </div>
         <div className="footer__column">
           <ul>
-            <li>RETURN POLICY</li>
-            <li>PRIVACY POLICY</li>
-            <li>SERVICE TERMS</li>
-            <li>SHIPPING POLICY </li>
+            <li>CHÍNH SÁCH ĐỔI TRẢ</li>
+            <li>CHÍNH SÁCH BẢO MẬT</li>
+            <li>ĐIỀU KHOẢN DỊCH VỤ</li>
+            <li>CHÍNH SÁCH GIAO HÀNG </li>
           </ul>
         </div>
         <div className="footer__column">
           <ul>
-            <li>📍 HA NOI CITY</li>
+            <li>📍 THÀNH PHỐ HÀ NỘI</li>
             <li>📞 0979797979</li>
             <li>📩 BLUESOLIS@gmail.com</li>
-            <li>🎥 PROVIDED BY BLUESOLIS</li>
+            <li>🎥 ĐƯỢC CUNG CẤP BỞI BLUESOLIS</li>
           </ul>
         </div>
         <div className="footer__column">
           <ul>
-            <li>ABOUT ME</li>
-            <li>CONTACT ME</li>
+            <li>GIỚI THIỆU</li>
+            <li>LIÊN HỆ</li>
             <li>AFFILIATES</li>
-            <li>RESOURCES</li>
+            <li>NGUỒN TÀI NGUYÊN</li>
           </ul>
         </div>
       </div>

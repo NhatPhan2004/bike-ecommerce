@@ -17,17 +17,17 @@ const Countdown = ({ duration }) => {
   return (
     <div className="flashsale-page__banner-countdown">
       <span className="flashsale-page__banner-countdown--title">
-        FLASH SALE END AFTER
+        FLASH SALE KẾT THÚC SAU:
       </span>
       <div className="flashsale-page__banner-countdown--timer-top">
         <div>
-          <span>{hours}</span>Hour
+          <span>{hours}</span>Giờ
         </div>
         <div>
-          <span>{minutes}</span>Minute
+          <span>{minutes}</span>Phút
         </div>
         <div>
-          <span>{seconds}</span>Second
+          <span>{seconds}</span>Giây
         </div>
       </div>
     </div>

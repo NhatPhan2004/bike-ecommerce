@@ -11,48 +11,49 @@ const ProductTabs = () => {
         return (
           <div className="tabs__content active">
             <p>
-              In today's fast-paced world, the demand for bicycles transcends
-              mere transportation – they must deliver convenience, aesthetic
-              appeal, and superior comfort. The Alight 3 DD Disc stands as the
-              ultimate urban cycling solution for modern women, masterfully
-              fulfilling all these expectations.
+              Trong thế giới phát triển nhanh ngày nay, nhu cầu về xe đạp vượt
+              ra ngoài phương tiện giao thông đơn thuần - chúng phải mang lại sự
+              tiện lợi, thẩm mỹ và sự thoải mái vượt trội. Alight 3 DD Disc là
+              giải pháp đạp xe đô thị tối ưu dành cho phụ nữ hiện đại, đáp ứng
+              thành thạo tất cả những kỳ vọng này.
             </p>
-            <h3>STANDOUT FEATURES::</h3>
+            <h3>CÁC TÍNH NĂNG NỔI BẬT:</h3>
             <ul>
               <li>
-                <strong>Shimano 3x7 Speed Drivetrain</strong> (21-speed gearing)
-                enables effortless speed adjustment for varied terrain – from
-                flat city streets to gentle urban slopes.
+                <strong>Hệ thống truyền động Shimano 3x7 tốc độ</strong> (21 cấp
+                số) giúp người lái dễ dàng điều chỉnh tốc độ phù hợp với nhiều
+                điều kiện địa hình, từ đường bằng phẳng đến những con dốc nhẹ
+                trong thành phố.
               </li>
               <li>
-                <strong>Mechanical Disc Brakes</strong> Delivering powerful,
-                consistent stopping power – especially reliable in wet weather
-                and slippery road conditions.
+                <strong>Phanh đĩa cơ (disc brake)</strong> mang lại lực hãm
+                mạnh, ổn định, đặc biệt an toàn khi đi trong điều kiện thời tiết
+                mưa hoặc đường trơn trượt.
               </li>
               <li>
-                <strong>700C Wheels with Sleek Tires,</strong> Featuring
-                lightweight tread patterns for quick acceleration, smooth
-                rolling, and effortless urban riding.
+                <strong>Bánh xe 700C </strong> với lốp mỏng và vân nhẹ, giúp
+                tăng tốc nhanh, lăn êm và tiết kiệm sức hơn trên các cung đường
+                đô thị.
               </li>
               <li>
-                <strong>Integrated Kickstand,</strong> Ready when you are – park
-                instantly anywhere in the city.
+                <strong>Chân chống</strong> tích hợp sẵn, thuận tiện cho việc
+                dừng xe bất kỳ lúc nào.
               </li>
             </ul>
-            <h3>Ideal For:</h3>
+            <h3>Phù hợp với:</h3>
             <ul>
               <li>
                 {" "}
-                Women seeking a beautiful, lightweight bicycle that’s easy to
-                handle and versatile for all occasions.
+                Nữ giới muốn tìm một chiếc xe đạp đẹp, nhẹ, dễ điều khiển và đa
+                dụng.
               </li>
               <li>
-                Office workers, students, and daily riders – perfect for both
-                transportation and light fitness.
+                Phù hợp với dân văn phòng, sinh viên, người dùng xe cho mục đích
+                đi lại hàng ngày và rèn luyện sức khỏe.
               </li>
               <li>
-                Beginners who want a comfortable, stable introduction to
-                cycling.
+                Người mới bắt đầu chơi xe đạp và muốn có trải nghiệm thoải mái,
+                ổn định.
               </li>
             </ul>
           </div>
@@ -61,80 +62,82 @@ const ProductTabs = () => {
         return (
           <div className="tabs__content active">
             <p>
-              EGA Bike is committed to providing a convenient and fast shopping
-              experience for customers through flexible and professional
-              delivery policies. Below are the detailed delivery policy
-              information:
+              BlueSolis Bike cam kết mang đến trải nghiệm mua sắm thuận tiện và
+              nhanh chóng cho khách hàng thông qua các chính sách giao hàng linh
+              hoạt và chuyên nghiệp. Dưới đây là thông tin chi tiết về chính
+              sách giao hàng:
             </p>
-            <h3>1. Delivery Coverage</h3>
+            <h3>1. Bảo hiểm giao hàng</h3>
             <ul>
               <li>
-                EGA Bike offers nationwide delivery services, including both
-                urban and rural areas.
+                BlueSolis Bike cung cấp dịch vụ giao hàng trên toàn quốc, bao
+                gồm cả khu vực thành thị và nông thôn.
               </li>
             </ul>
-            <h3>2. Delivery Time</h3>
+            <h3>2. Thời gian giao hàng</h3>
             <ul>
               <li>
-                <strong>Urban areas:</strong> For orders within the city,
-                delivery time is 1–2 working days.
+                <strong>Khu đô thị:</strong> Đối với các đơn hàng trong thành
+                phố, thời gian giao hàng là 1–2 ngày làm việc.
               </li>
               <li>
-                <strong>Suburban and other provinces:</strong> Delivery time
-                ranges from 3–5 working days depending on distance and transport
-                conditions.
+                <strong>Ngoại ô và các tỉnh khác:</strong> Thời gian giao hàng
+                dao động từ 3–5 ngày làm việc tùy thuộc vào khoảng cách và điều
+                kiện vận chuyển.
               </li>
             </ul>
-            <h3>3. Delivery Fees</h3>
+            <h3>3. Phí giao hàng</h3>
             <ul>
               <li>
-                <strong>Urban areas:</strong> Free shipping for orders worth
-                500,000 VND or more. For orders under 500,000 VND, the shipping
-                fee will be calculated based on distance.
+                <strong>Khu đô thị:</strong> Miễn phí vận chuyển cho đơn hàng có
+                giá trị từ 500.000 đồng trở lên. Đối với đơn hàng dưới 500.000
+                đồng, phí vận chuyển sẽ được tính dựa trên khoảng cách.
               </li>
               <li>
-                <strong>Suburban and other provinces:</strong> Shipping fees are
-                based on the product’s weight, size, and delivery distance.
-                Customers will be informed of the specific shipping cost before
-                completing the order.
-              </li>
-            </ul>
-            <h3>4. Product Packaging</h3>
-            <ul>
-              <li>
-                Products are carefully packed to ensure safety during
-                transportation. For fragile or high-value items, we apply
-                special protective measures.
+                <strong>Ngoại ô và các tỉnh khác:</strong> Phí vận chuyển dựa
+                trên trọng lượng, kích thước và quãng đường giao hàng của sản
+                phẩm. Khách hàng sẽ được thông báo chi phí vận chuyển cụ thể
+                trước khi hoàn tất đơn hàng.
               </li>
             </ul>
-            <h3>5. Order Tracking</h3>
+            <h3>4. Bao bì sản phẩm</h3>
             <ul>
               <li>
-                Customers can track the status of their orders via the tracking
-                code provided once the order is shipped. This information will
-                be sent via email or SMS.
+                Sản phẩm được đóng gói cẩn thận đảm bảo an toàn trong quá trình
+                vận chuyển. Đối với các mặt hàng dễ vỡ hoặc có giá trị cao,
+                chúng tôi áp dụng các biện pháp bảo vệ đặc biệt.
               </li>
             </ul>
-            <h3>6. Return & Exchange Policy</h3>
+            <h3>5. Theo dõi đặt hàng</h3>
             <ul>
               <li>
-                In case of damaged, incorrect, or mismatched products, customers
-                may request a return or exchange within 7 days from the delivery
-                date. EGA Bike will cover shipping costs for returns due to our
-                fault.
+                Khách hàng có thể theo dõi trạng thái đơn hàng của mình thông
+                qua mã theo dõi được cung cấp sau khi đơn hàng được vận chuyển.
+                Thông tin này sẽ được gửi qua email hoặc SMS.
               </li>
             </ul>
-            <h3>7. Customer Support</h3>
+            <h3>6. Chính sách đổi trả</h3>
             <ul>
               <li>
-                If you have any questions or need support regarding delivery
-                issues, please contact EGA Bike’s customer service team via
-                phone or email. We are always ready to assist you.
+                Trong trường hợp sản phẩm bị hư hỏng, không chính xác hoặc không
+                khớp, khách hàng có thể yêu cầu đổi trả trong vòng 7 ngày kể từ
+                ngày giao hàng. BlueSolis Bike sẽ chi trả chi phí vận chuyển cho
+                việc trả lại do lỗi của chúng tôi.
+              </li>
+            </ul>
+            <h3>7. Hỗ trợ khách hàng</h3>
+            <ul>
+              <li>
+                Nếu bạn có bất kỳ câu hỏi nào hoặc cần hỗ trợ liên quan đến các
+                vấn đề giao hàng, vui lòng liên hệ với nhóm dịch vụ khách hàng
+                của BlueSolis Bike qua điện thoại hoặc email. Chúng tôi luôn sẵn
+                sàng hỗ trợ bạn.
               </li>
             </ul>
             <p>
-              We aim to bring absolute satisfaction to our customers with every
-              order. Trust and choose EGA Bike for your biking journeys!
+              Chúng tôi mong muốn mang lại sự hài lòng tuyệt đối cho khách hàng
+              với mọi đơn hàng. Hãy tin tưởng và chọn BlueSolis Bike cho hành
+              trình đạp xe của bạn!
             </p>
           </div>
         );
@@ -142,51 +145,52 @@ const ProductTabs = () => {
       case 2:
         return (
           <div className="tabs__content active">
-            <h3>1. Return & Exchange Conditions</h3>
+            <h3>1. Điều kiện đổi trả</h3>
             <p>
-              Customers are required to check the condition of the goods and may
-              return or exchange the products at the time of delivery/receipt in
-              the following cases:
+              Khách hàng được yêu cầu kiểm tra tình trạng hàng hóa và có thể đổi
+              trả sản phẩm tại thời điểm giao hàng/nhận hàng trong các trường
+              hợp sau:
             </p>
             <ul>
               <li>
-                The item is not the correct type or model as ordered, or does
-                not match the description on the website at the time of
-                purchase.
+                Mặt hàng không đúng loại hoặc mẫu mã như đã đặt hàng, hoặc không
+                khớp với mô tả trên website tại thời điểm mua hàng.
               </li>
               <li>
-                The quantity is incorrect, or the item set is incomplete
-                compared to the order.
+                Số lượng không chính xác, hoặc bộ mặt hàng không đầy đủ so với
+                đơn hàng.
               </li>
               <li>
-                The product is externally damaged such as torn packaging,
-                peeling, or breakage, etc.
+                Sản phẩm bị hư hỏng bên ngoài như bao bì bị rách, bong tróc,
+                vỡ,...
               </li>
             </ul>
             <p>
-              Customers are responsible for providing supporting documents to
-              prove the issue in order to complete the return/exchange process.
+              Khách hàng có trách nhiệm cung cấp các chứng từ chứng minh vấn đề
+              để hoàn tất quá trình đổi trả.
             </p>
 
-            <h3>2. Regulations on Notification Time and Product Return</h3>
+            <h3>2. Quy định về thời gian thông báo và đổi trả sản phẩm</h3>
             <ul>
               <li>
-                <strong>Notification time for return/exchange:</strong> within
-                48 hours from the time of receiving the product, in cases such
-                as missing accessories, gifts, or product damage.
+                <strong>Thời gian thông báo đổi trả:</strong> trong vòng 48 giờ
+                kể từ thời điểm nhận được sản phẩm, trong các trường hợp như
+                thiếu phụ kiện, quà tặng, hư hỏng sản phẩm.
               </li>
               <li>
-                <strong>Time to send back the product:</strong> within 14 days
-                from the date of receiving the product.
+                <strong>Thời gian gửi lại sản phẩm:</strong> trong vòng 14 ngày
+                kể từ ngày nhận được sản phẩm.
               </li>
               <li>
-                <strong>Return address:</strong> Customers may return products
-                directly to our office/store or send them by post.
+                <strong>Địa chỉ trả hàng:</strong> Khách hàng có thể trả lại sản
+                phẩm trực tiếp tại văn phòng/cửa hàng của chúng tôi hoặc gửi qua
+                đường bưu điện.
               </li>
             </ul>
             <p>
-              If you have any feedback or complaints regarding product quality,
-              please contact our customer care hotline.
+              Nếu bạn có bất kỳ phản hồi hoặc khiếu nại nào liên quan đến chất
+              lượng sản phẩm, vui lòng liên hệ hotline chăm sóc khách hàng của
+              chúng tôi.
             </p>
           </div>
         );
@@ -203,19 +207,19 @@ const ProductTabs = () => {
           className={`tabs__tab ${activeTab === 0 ? "active" : ""}`}
           onClick={() => setActiveTab(0)}
         >
-          Product Description
+          Mô tả sản phẩm
         </div>
         <div
           className={`tabs__tab ${activeTab === 1 ? "active" : ""}`}
           onClick={() => setActiveTab(1)}
         >
-          Shipping Policy
+          Chính sách giao hàng
         </div>
         <div
           className={`tabs__tab ${activeTab === 2 ? "active" : ""}`}
           onClick={() => setActiveTab(2)}
         >
-          Return Policy
+          Chính sách đổi trả
         </div>
       </div>
 

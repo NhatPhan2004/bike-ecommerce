@@ -39,16 +39,16 @@ const CheckoutAddress = () => {
 
     const { fullName, phone, city, district, address, email } = formData;
     if (!fullName || !phone || !city || !district || !address || !email) {
-      alert("Please fill in all required fields.");
+      alert("Vui lòng điền vào tất cả các trường bắt buộc.");
       return;
     }
 
     if (!user?.id) {
-      alert("You must be logged in to proceed.");
+      alert("Bạn phải đăng nhập để tiếp tục.");
       return;
     }
 
-    console.log("✅ Delivery info submitted:", formData);
+    console.log("✅ Thông tin giao hàng đã gửi:", formData);
 
     const amount = Math.round(total || 10000);
     const orderId = Date.now().toString();
@@ -76,8 +76,8 @@ const CheckoutAddress = () => {
         window.location.href = res.data.paymentUrl;
       }
     } catch (err) {
-      console.error("Payment error:", err.response?.data || err.message);
-      alert("Failed to initiate payment.");
+      console.error("Lỗi thanh toán:", err.response?.data || err.message);
+      alert("Không thanh toán được.");
     }
   };
 
@@ -97,12 +97,12 @@ const CheckoutAddress = () => {
       <div className="checkout-address__content">
         <form className="checkout-address__form" onSubmit={handleSubmit}>
           <div className="checkout-address__title">
-            Delivery Information
+            Thông tin giao hàng
             <FaShippingFast className="checkout-address__title--icon" />
           </div>
           <div className="checkout-address__row">
             <div className="checkout-address__group">
-              <label>Full name</label>
+              <label>Họ và tên</label>
               <input
                 type="text"
                 name="fullName"
@@ -114,7 +114,7 @@ const CheckoutAddress = () => {
             </div>
 
             <div className="checkout-address__group">
-              <label>Phone</label>
+              <label>Số điện thoại</label>
               <input
                 type="tel"
                 name="phone"
@@ -128,14 +128,14 @@ const CheckoutAddress = () => {
 
           <div className="checkout-address__row">
             <div className="checkout-address__group">
-              <label>Province / City</label>
+              <label>Tỉnh/ Thành phố</label>
               <select
                 name="city"
                 value={formData.city}
                 onChange={handleChange}
                 required
               >
-                <option value="">-- Choose a city --</option>
+                <option value="">-- Chọn Thành phố --</option>
                 {cityOptions.map((city) => (
                   <option key={city} value={city}>
                     {city}
@@ -145,7 +145,7 @@ const CheckoutAddress = () => {
             </div>
 
             <div className="checkout-address__group">
-              <label>District</label>
+              <label>Quận/ Huyện</label>
               <select
                 name="district"
                 value={formData.district}
@@ -153,7 +153,7 @@ const CheckoutAddress = () => {
                 required
                 disabled={!formData.city}
               >
-                <option value="">-- Choose a district --</option>
+                <option value="">-- Chọn quận/ huyện --</option>
                 {districtOptions.map((district) => (
                   <option key={district} value={district}>
                     {district}
@@ -176,12 +176,12 @@ const CheckoutAddress = () => {
           </div>
 
           <div className="checkout-address__group">
-            <label>Detailed address</label>
+            <label>Địa chỉ chi tiết</label>
             <textarea
               name="address"
               value={formData.address}
               onChange={handleChange}
-              placeholder="123 ABC Street, Ward XYZ"
+              placeholder="Đường 123, Khu XYZ"
               required
             />
           </div>
@@ -192,55 +192,57 @@ const CheckoutAddress = () => {
               type="button"
               onClick={handleBackCart}
             >
-              Back to Cart
+              Trở về Giỏ hàng
             </button>
             <button className="btn btn--primary" type="submit">
-              Continue to Payment
+              Tiếp tục thanh toán
             </button>
           </div>
         </form>
 
         <div className="checkout-address__right">
           <div className="orderSummary">
-            <div className="orderSummary__title">ORDER SUMMARY</div>
+            <div className="orderSummary__title">TỔNG TIỀN ĐƠN HÀNG</div>
 
             <div className="orderSummary__row">
-              <span>Subtotal</span>
+              <span>Tổng tiền</span>
               <span>{total.toLocaleString()}₫</span>
             </div>
 
             <div className="orderSummary__row">
               <div className="summary__note">
-                Free ship for orders from 3,000,000 VND
+                Miễn phí Ship cho đơn từ 3,000,000 VND
               </div>
             </div>
 
             <div className="orderSummary__row orderSummary__row--total">
-              <strong>Total Payable</strong>
+              <strong>Số tiền phải trả</strong>
               <strong>{total.toLocaleString()}₫</strong>
             </div>
 
             <div className="orderSummary__row">
-              <span>Total Products</span>
+              <span>Tổng sản phẩm</span>
               <span>{totalQuantity}</span>
             </div>
 
             <div className="orderSummary__note">
               <textarea
-                placeholder="Add a note to your order (optional)"
+                placeholder="Thêm ghi chú vào đơn hàng của bạn (không bắt buộc)"
                 rows={3}
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
               />
             </div>
-            <div className="orderSummary__account">BLUESOLIS BIKE ACCOUNT</div>
+            <div className="orderSummary__account">
+              TÀI KHOẢN BLUESOLIS BIKE{" "}
+            </div>
 
             <button
               type="button"
               className="btn btn--primary"
               onClick={handleSubmit}
             >
-              Proceed to Payment
+              Tiến hành Thanh toán
             </button>
           </div>
         </div>
