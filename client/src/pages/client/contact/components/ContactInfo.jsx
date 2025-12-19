@@ -10,7 +10,7 @@ export default function ContactInfo() {
       </div>
       <div className="contact-info__item">
         <span>Email</span>
-        <div href="bluesolis@gmail.com">bluesolis@gmail.com</div>
+        <div href="bluesolis@gmail.com">bluesolis2004@gmail.com</div>
       </div>
       <div className="contact-info__item">
         <span>Địa chỉ</span>

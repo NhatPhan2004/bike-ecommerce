@@ -18,6 +18,7 @@ import Contact from "../pages/client/contact/Contact";
 import ProductList from "../pages/client/products/ProductList";
 import ProductDetail from "../pages/client/products/ProductDetail";
 import PaymentSuccess from "../pages/client/cart/PaymentSuccess";
+import Invoice from "../pages/client/order/Invoice";
 
 // Pages - Admin
 import AdminLogin from "../pages/admin/AdminLogin/AdminLogin";
@@ -47,6 +48,7 @@ const AppRoutes = () => {
           <Route path="address" element={<CheckoutAddress />} />
           <Route path="payment-success" element={<PaymentSuccess />} />
         </Route>
+        <Route path="invoice" element={<Invoice />} />
 
         {/* ADMIN LOGIN */}
         <Route path="/admin/login" element={<AdminLogin />} />

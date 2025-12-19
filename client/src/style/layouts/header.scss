@@ -26,7 +26,7 @@
 
   &__left {
     .header__logo img {
-      height: 50px;
+      height: 45px;
       display: block;
       max-width: 100%;
     }
@@ -127,7 +127,7 @@
 
       .header__quantity-cart {
         position: absolute;
-        top: 4px;
+        top: 0px;
         right: -8px;
         background: red;
         color: white;

@@ -52,7 +52,7 @@ const FilterSidebar = ({ onFilterChange }) => {
 
   return (
     <aside className="filter-sidebar">
-      <h2 className="filter-sidebar__title">BIKE-BLUESOLIS</h2>
+      <h2 className="filter-sidebar__title">BIKE - BLUESOLIS</h2>
       {filters.map((group) => (
         <div key={group.type} className="filter-group" data-type={group.type}>
           <h4 className="filter-group__title">{group.title}</h4>

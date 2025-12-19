@@ -51,7 +51,7 @@ const Statistics = () => {
         datasets: [
           {
             data: stats.trangThai.map((i) => i.value),
-            backgroundColor: ["#4CAF50", "#F44336"],
+            backgroundColor: ["#F44336", "#4CAF50"],
           },
         ],
       },
@@ -89,7 +89,8 @@ const Statistics = () => {
       <div className={styles.grid}>
         <div className={styles.card}>
           <h3>Statistics by purchase volume</h3>
-          <canvas ref={chartTenxeRef}></canvas>
+          {/* <canvas ref={chartTenxeRef}></canvas>+{" "} */}
+          <canvas ref={chartLoaiRef}></canvas>
         </div>
 
         <div className={styles.card}>

@@ -37,7 +37,7 @@
   &__form {
     flex: 1;
     background-color: #fffbec;
-    padding: 20px;
+    padding: 35px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -132,10 +132,10 @@
 }
 
 .orderSummary {
-  padding: 20px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 
   &__title {
     background: #ffbe55;
@@ -149,7 +149,7 @@
   .summary__note {
     background: #fff3cf;
     padding: 8px;
-    font-size: 13.5px;
+    font-size: 14.5px;
     border-left: 4px solid orange;
     margin: 10px 0;
     font-style: italic;
@@ -167,6 +167,7 @@
       border-top: 1px solid #ddd;
       padding-top: 10px;
       margin-top: 10px;
+      font-family: var(--font);
     }
   }
 
@@ -182,7 +183,7 @@
     }
   }
   &__account {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
     text-align: center;
   }

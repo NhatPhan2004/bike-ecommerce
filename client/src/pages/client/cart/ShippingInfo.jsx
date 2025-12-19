@@ -38,6 +38,7 @@ const CheckoutAddress = () => {
     e.preventDefault();
 
     const { fullName, phone, city, district, address, email } = formData;
+
     if (!fullName || !phone || !city || !district || !address || !email) {
       alert("Vui lòng điền vào tất cả các trường bắt buộc.");
       return;
@@ -48,18 +49,17 @@ const CheckoutAddress = () => {
       return;
     }
 
-    console.log("✅ Thông tin giao hàng đã gửi:", formData);
+    console.log(" Thông tin giao hàng đã gửi:", formData);
 
     const amount = Math.round(total || 10000);
-    const orderId = Date.now().toString();
+    // const orderId = Date.now().toString();
     const userId = user.id;
-
     try {
       const res = await axios.post(
         `${apiRoutes.base}${apiRoutes.payment.createUrl}`,
         {
           amount,
-          orderId,
+          // orderId,
           userId,
           fullName,
           phone,
@@ -71,16 +71,15 @@ const CheckoutAddress = () => {
           cartItems,
         }
       );
-
       if (res.data?.paymentUrl) {
         window.location.href = res.data.paymentUrl;
       }
+      console.log("Redirecting to payment URL:", res.data);
     } catch (err) {
       console.error("Lỗi thanh toán:", err.response?.data || err.message);
       alert("Không thanh toán được.");
     }
   };
-
   const handleBackCart = () => {
     window.scrollTo({ top: 0 });
     navigate("/cart");

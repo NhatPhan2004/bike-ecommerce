@@ -7,211 +7,25 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   margin-top: 76px;
-  background: linear-gradient(
-    115deg,
-    #0a0a0a 0%,
-    #322e71 40%,
-    #000 70%,
-    #2c2875 100%
-  );
+  overflow: hidden;
 
-  &::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      ellipse at 70% 50%,
-      rgba(255, 255, 255, 0.08) 0%,
-      transparent 60%
-    );
-    z-index: 1;
-    animation: lightPulse 15s infinite alternate;
-  }
-
-  &__images {
-    position: absolute;
-    inset: 0;
+  &__container {
     width: 100%;
     height: 100%;
-    z-index: 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+  }
+
+  .bannerBg {
+    width: 100%;
+    height: 100%;
+    position: relative;
 
     img {
-      position: relative;
-      height: 75%;
-      width: auto;
-      max-width: 60%;
-      object-fit: contain;
-      object-position: right;
-      mix-blend-mode: luminosity;
-      filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1)) contrast(1.1);
-      opacity: 0.95;
-      animation: float 6s ease-in-out infinite;
-      margin-right: 30px;
-
-      @media (max-width: 768px) {
-        height: 60%;
-        max-width: 80%;
-      }
-    }
-
-    .banner__overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to left,
-        rgba(0, 0, 0, 0.8) 0%,
-        transparent 10%
-      );
-      z-index: 1;
-    }
-  }
-
-  &__content {
-    margin-top: 50px;
-    position: relative;
-    z-index: 2;
-    padding-left: 7%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 60%;
-    color: #fff;
-    animation: fadeIn 1s ease-out;
-
-    @media (max-width: 768px) {
-      width: 100%;
-      padding: 0 1.5rem;
-      text-align: center;
-      align-items: center;
-    }
-  }
-
-  &__title {
-    font-size: 35px;
-    font-family: var(--font);
-    font-weight: 700;
-    text-transform: uppercase;
-    margin-top: 50px;
-    margin-bottom: 0;
-    opacity: 0;
-    transform: translateX(-100px);
-    animation: slideInLeft 1s ease forwards;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-  }
-
-  &__line {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 1.5rem 0;
-    width: min(100%, 500px);
-    opacity: 0;
-    animation: fadeIn 1s ease forwards 0.8s;
-
-    &::before,
-    &::after {
-      content: "";
-      flex: 1;
-      height: 3px;
-      border-radius: 3px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(255, 255, 255, 0.6),
-        transparent
-      );
-    }
-  }
-
-  .banner__icon {
-    display: inline-flex;
-    width: 60px;
-    height: 60px;
-    margin: 0 12px;
-    animation: spin 3s linear infinite;
-    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
-
-    .wheel-icon {
       width: 100%;
       height: 100%;
-      fill: #f1f1f1;
-    }
-  }
-
-  &__subtitle {
-    font-size: 20px;
-    margin-bottom: 2rem;
-    color: #ddd;
-    opacity: 0;
-    font-family: var(--font);
-    text-align: justify;
-    transform: translateY(50px);
-    animation: slideUp 1s ease forwards;
-    animation-delay: 0.5s;
-    max-width: 73%;
-    line-height: 1.6;
-
-    @media (max-width: 768px) {
-      padding: 0 1rem;
-      max-width: 100%;
-    }
-  }
-  .btn-section {
-    opacity: 0;
-    transform: translateY(50px);
-    animation: slideUp 1s ease forwards;
-    animation-delay: 1s;
-  }
-
-  @keyframes lightPulse {
-    0%,
-    100% {
-      opacity: 0.8;
-    }
-    50% {
-      opacity: 1;
-    }
-  }
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-15px);
-    }
-  }
-
-  @keyframes slideInLeft {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes slideUp {
-    to {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  @keyframes fadeIn {
-    to {
-      opacity: 1;
-    }
-  }
-
-  @keyframes spin {
-    to {
-      transform: rotate(360deg);
+      object-fit: cover;
+      object-position: center;
+      display: block;
     }
   }
 }
@@ -265,7 +79,7 @@
 
   &__desc {
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 1.5rem;
     color: #555;
 
@@ -279,6 +93,7 @@
     padding-left: 1.5rem;
     margin-bottom: 2rem;
     color: #333;
+    font-size: 1rem;
 
     li {
       margin-bottom: 0.5rem;

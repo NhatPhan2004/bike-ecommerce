@@ -25,15 +25,15 @@ const BikeIntro = () => {
             </i>
           </p>
           <ul className="bike-intro__features">
-            <li>✓ Khung xe hợp kim nhôm siêu nhẹ và bền bỉ</li>
-            <li>✓ Phuộc trước Suntour NEX HLO 63mm êm ái</li>
+            <li>✓ Khung xe hợp kim nhôm siêu nhẹ và bền bỉ.</li>
+            <li>✓ Phuộc trước Suntour NEX HLO 63mm êm ái.</li>
             <li>
-              ✓ Hệ thống truyền động Shimano Deore T6000 30 tốc độ linh hoạt
+              ✓ Hệ thống truyền động Shimano Deore T6000 30 tốc độ linh hoạt.
             </li>
-            <li>✓ Phanh thủy lực an toàn, chính xác</li>
-            <li>✓ Lốp xe Kenda Booster bám đường tốt</li>
-            <li>✓ Ghi đông cong, yên Selle Italia thoải mái</li>
-            <li>✓ Trang bị đầy đủ phụ kiện</li>
+            <li>✓ Phanh thủy lực an toàn, chính xác.</li>
+            <li>✓ Lốp xe Kenda Booster bám đường tốt.</li>
+            <li>✓ Ghi đông cong, yên Selle Italia thoải mái.</li>
+            <li>✓ Trang bị đầy đủ phụ kiện.</li>
           </ul>
           <Link to="/product/9" className="bike-intro__btn">
             XEM CHI TIẾT

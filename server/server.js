@@ -14,12 +14,11 @@ const adminAuthRoutes = require("./routes/adminAuthRoutes");
 const adminStatsRoutes = require("./routes/adminStatsRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const orderRoutes = require("./routes/adminOrderRoutes");
-const PORT = process.env.PORT || 5000;
 const adminCustomerRoutes = require("./routes/adminCustomerRoutes");
 const statisticsRoutes = require("./routes/statisticsRoutes");
 
 const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
-
+const PORT = process.env.PORT || 5000;
 app.use(
   cors({
     origin: function (origin, callback) {

@@ -1,0 +1,258 @@
+// Biến SCSS
+$primary-color: #007bff;
+$secondary-color: #6c757d;
+$text-color: #333;
+$background-color: #e9e8e8;
+$border-color: #ddd;
+$font-family: "Be Vietnam Pro", sans-serif;
+$header-gradient: linear-gradient(135deg, #007bff, #0056b3);
+$shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+$spacing-unit: 20px;
+
+// Block chính
+.invoice-page {
+  max-width: 800px;
+  margin: 80px auto;
+  padding: $spacing-unit;
+  background-color: #fff;
+  border: 1px solid $border-color;
+  border-radius: 10px;
+  font-family: $font-family;
+  color: $text-color;
+  box-shadow: $shadow;
+
+  // Header với flexbox
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: $header-gradient;
+    color: #fff;
+    padding: $spacing-unit;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: $spacing-unit;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  &__company-info {
+    flex: 1;
+  }
+
+  &__company-name {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  &__company-detail {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+
+  &__invoice-info {
+    flex: 1;
+    text-align: right;
+
+    @media (max-width: 768px) {
+      text-align: center;
+      margin-top: $spacing-unit;
+    }
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  &__invoice-detail {
+    margin: 5px 0;
+    font-size: 0.9rem;
+  }
+
+  // Section titles
+  &__section-title {
+    font-size: 1.2rem;
+    color: $primary-color;
+    margin-bottom: 10px;
+    border-bottom: 2px solid $primary-color;
+    padding-bottom: 5px;
+  }
+
+  // Customer info
+  &__customer-info {
+    margin-bottom: $spacing-unit;
+    padding: $spacing-unit;
+    background-color: $background-color;
+    border-radius: 4px;
+    box-shadow: $shadow;
+
+    &-item {
+      margin: 5px 0;
+      font-size: 1rem;
+    }
+  }
+
+  // Products section với bảng
+  &__products {
+    margin-bottom: $spacing-unit;
+  }
+
+  &__products-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: $shadow;
+    border-radius: 4px;
+    overflow: hidden;
+
+    &-header {
+      background-color: $secondary-color;
+      color: #fff;
+      padding: 12px;
+      text-align: left;
+      font-weight: bold;
+    }
+
+    &-row {
+      &:nth-child(even) {
+        background-color: $background-color;
+      }
+    }
+
+    &-cell {
+      padding: 12px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+
+  // Footer với summary và notes
+  &__footer {
+    border-top: 2px solid $border-color;
+    padding-top: $spacing-unit;
+  }
+
+  &__summary {
+    margin-bottom: $spacing-unit;
+  }
+
+  &__total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary-color;
+    margin: 10px 0;
+  }
+
+  &__notes {
+    margin-bottom: $spacing-unit;
+    padding: $spacing-unit;
+    background-color: $background-color;
+    border-radius: 4px;
+    box-shadow: $shadow;
+
+    &-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  }
+
+  &__download-link {
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__download-btn {
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: translateY(-2px);
+    }
+  }
+
+  // Loading
+  &__loading {
+    text-align: center;
+    font-size: 1.2rem;
+    color: $text-color;
+    margin: 50px 0;
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    padding: 15px;
+    &__title {
+      font-size: 1.5rem;
+    }
+    &__products-table {
+      font-size: 0.8rem;
+    }
+    &__download-btn {
+      width: 100%;
+    }
+  }
+  &__download-btn {
+    background-color: $primary-color;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    &:hover:not(:disabled) {
+      background-color: darken($primary-color, 10%);
+      transform: translateY(-2px);
+    }
+    &:disabled {
+      background-color: $secondary-color;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+}
+@media print {
+  /* Ẩn toàn bộ layout chung */
+  header,
+  footer,
+  nav,
+  .navbar,
+  .site-header,
+  .site-footer {
+    display: none !important;
+  }
+
+  /* Chỉ hiện hóa đơn */
+  body * {
+    visibility: hidden;
+  }
+
+  .invoice-page,
+  .invoice-page * {
+    visibility: visible;
+  }
+
+  .invoice-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+  }
+
+  /* Ẩn nút tải PDF khi in */
+  .invoice-page__download-btn {
+    display: none !important;
+  }
+}
