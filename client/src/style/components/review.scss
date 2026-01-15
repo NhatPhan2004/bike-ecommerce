@@ -1,0 +1,202 @@
+.review {
+  padding: 80px 0;
+  font-family: "Be Vietnam Pro", sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: #f9f9f9;
+
+  &__container {
+    display: flex;
+    position: relative !important;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 550px;
+    background-color: #fff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+
+    @media (max-width: 992px) {
+      flex-direction: column;
+      max-width: 90%;
+    }
+  }
+
+  &__panel {
+    position: relative;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+
+    &--left {
+      width: 45%;
+      background: #1a1a1a;
+      color: #fff;
+      justify-content: space-between;
+
+      @media (max-width: 992px) {
+        width: 100%;
+        min-height: 450px;
+      }
+    }
+
+    &--right {
+      width: 55%;
+      background: #ffffff;
+      justify-content: center;
+      padding: 40px 60px;
+
+      @media (max-width: 992px) {
+        width: 100%;
+        padding: 40px;
+      }
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.7)
+      );
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__header,
+  &__customer {
+    position: relative;
+    z-index: 2;
+    margin-top: auto;
+  }
+
+  &__badge {
+    background: #fff8e0;
+    color: #745858;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__main-title {
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    line-height: 1.1;
+    font-weight: 700;
+  }
+
+  &__customer-name {
+    font-size: 2.7rem;
+    margin-bottom: 5px;
+    font-weight: 800;
+  }
+
+  &__customer-title {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    font-weight: 400;
+  }
+
+  &__quote-mark {
+    position: absolute;
+    font-size: 12rem;
+    font-family: serif;
+    color: #f7f7f7;
+    line-height: 1;
+    z-index: 1;
+
+    &--top {
+      top: 20px;
+      right: 40px;
+    }
+    &--bottom {
+      bottom: 100px;
+      left: -20px;
+      color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    font-size: 1.3rem;
+    text-align: center;
+    line-height: 1.8;
+    color: #333;
+    font-weight: 400;
+  }
+
+  &__rating {
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  &__star {
+    font-size: 1.8rem;
+    color: #eee;
+    margin-right: 5px;
+
+    &--active {
+      color: #ffcc00;
+      font-size: 40px;
+    }
+  }
+
+  &__nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #eee;
+    border: none;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    border-radius: 4px;
+    transition: all 0.3s;
+    z-index: 10;
+
+    &:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    &--prev {
+      left: 20px;
+    }
+
+    &--next {
+      right: 15px;
+    }
+  }
+}

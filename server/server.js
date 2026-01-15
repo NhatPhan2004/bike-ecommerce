@@ -16,6 +16,8 @@ const adminRoutes = require("./routes/adminRoutes");
 const orderRoutes = require("./routes/adminOrderRoutes");
 const adminCustomerRoutes = require("./routes/adminCustomerRoutes");
 const statisticsRoutes = require("./routes/statisticsRoutes");
+const reviewRoutes = require("./routes/reviewRoutes");
+const bestsellerRoutes = require("./routes/bestsellerRoutes");
 
 const allowedOrigins = ["http://localhost:3000", "http://localhost:3001"];
 const PORT = process.env.PORT || 5000;
@@ -45,6 +47,8 @@ app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api", contactRoutes);
+app.use("/api/reviews", reviewRoutes);
+app.use("/api/bestsellers", bestsellerRoutes);
 app.use("/api/payment", paymentRoutes);
 app.use("/api/auth/admin", adminAuthRoutes);
 app.use("/api/admin/stats", adminStatsRoutes);

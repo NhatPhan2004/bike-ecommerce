@@ -4,7 +4,7 @@ import banner_bg from "./banner_bg.jpg";
 import bicycle from "./bicycle.png";
 import bannerFl from "./banner_flashsale.jpg";
 import bikeFl from "./banner_flashsale_bike.png";
-import bikeIntro_001 from "./bike_introduce_001.png";
+import bikeIntro_001 from "./bikeIntro_001.png";
 import flashsaleIntro_001 from "./flashsale_introduce_001.png";
 
 export {

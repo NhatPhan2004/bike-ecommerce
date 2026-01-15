@@ -7,6 +7,8 @@ const apiRoutes = {
   image: {
     product: "/uploads/images/",
     post: "/uploads/images/",
+    review: "/uploads/images/",
+    bestseller: "/uploads/images/",
   },
 
   products: {
@@ -19,6 +21,17 @@ const apiRoutes = {
 
     brands: "/products/brands",
     loaixes: "/products/loaixes",
+  },
+
+  review: {
+    imagePath: "/uploads/images/",
+    getAll: `/reviews`,
+    getFeatured: `/reviews/featured`,
+  },
+
+  bestsellers: {
+    imagePath: "/uploads/images/",
+    getAll: `/bestsellers`,
   },
 
   posts: {

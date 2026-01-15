@@ -91,3 +91,33 @@ CREATE TABLE cart (
   FOREIGN KEY (user_id) REFERENCES user(User_id),
   FOREIGN KEY (bike_id) REFERENCES xedap(Bike_id)  
 );
+
+-- Tạo bảng reviews đánh giá sản phẩm
+CREATE TABLE IF NOT EXISTS reviews (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    customer_name VARCHAR(100) NOT NULL,
+    customer_title VARCHAR(100),
+    avatar_url VARCHAR(255), 
+    content TEXT NOT NULL,
+    rating INT CHECK (rating >= 1 AND rating <= 5),
+    display_order INT DEFAULT 0,
+    is_featured BOOLEAN DEFAULT FALSE,
+    status ENUM('ACTIVE', 'INACTIVE') DEFAULT 'ACTIVE',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Tạo bảng bestseller sản phẩm bán chạy
+CREATE TABLE IF NOT EXISTS bestseller (
+    Bike_id INT AUTO_INCREMENT PRIMARY KEY,
+    Tenxe VARCHAR(100) NOT NULL,
+    Brand_id INT,
+    Loaixe_id INT,
+    Giaban DECIMAL(10,2),
+    Soluong INT DEFAULT 0,
+    Hinhanh VARCHAR(255),
+    Mausac VARCHAR(50),
+    is_featured BOOLEAN DEFAULT TRUE, 
+    display_order INT DEFAULT 0,      
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    sold_count INT
+);

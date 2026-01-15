@@ -1,12 +1,10 @@
 import "@style/pages/home.scss";
-import { Link } from "react-router-dom";
 import Banner from "./components/Banner";
 import ProductSlider from "./components/ProductSlider";
+import Bestseller from "./components/Bestseller";
 import BikeIntro from "./components/BikeIntro";
+import Review from "./components/Review";
 import HomeNewsSection from "../news/HomeNewsSection";
-
-// import base from "../../../style/base/base.scss";
-// import reset from "../../../style/base/reset.scss";
 
 const Home = () => {
   return (
@@ -14,7 +12,9 @@ const Home = () => {
       <div>
         <Banner />
         <ProductSlider />
+        <Bestseller />
         <BikeIntro />
+        <Review />
         <HomeNewsSection />
       </div>
     </>
