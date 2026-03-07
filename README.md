@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Bicycle E-commerce Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern full-stack bicycle store web application that allows users to browse products, manage a shopping cart, authenticate accounts, complete checkout, and manage products through an admin dashboard.
+Built with React, Node.js, Express, and MySQL.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+Frontend: []
 
-### `npm start`
+Backend API: []
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshots
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Home Page  
+![Home Page](./client/src/assets/screenshots/home.jpg)
 
-### `npm test`
+Product Page  
+![Product Page](./client/src/assets/screenshots/products.jpg)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Product Detail Page  
+![Product Detail Page](./client/src/assets/screenshots/product_detail.jpg)
 
-### `npm run build`
+Cart Page  
+![Cart Page](./client/src/assets/screenshots/cart.jpg)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Dashboard Page
+![Dashboard Page](./client/src/assets/screenshots/dashboard.jpg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- User authentication (register & login)
+- Browse bicycle products
+- Product detail page
+- Add items to cart
+- Order checkout
+- Admin dashboard to manage products
+- Responsive design for mobile and desktop
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- React
+- SCSS(BEM)
+- Axios
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Backend
 
-## Learn More
+- Node.js
+- Express.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Database
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- MySQL
 
-### Code Splitting
+# Tools
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Git
+- Postman
+- Figma
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Installation
 
-### Making a Progressive Web App
+Clone the repository: https://github.com/NhatPhan2004/bike-ecommerce.git
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Running the Project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# Start backend server
 
-### Deployment
+cd server
+node server.js
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Start frontend
 
-### `npm run build` fails to minify
+cd client
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## API Endpoints
+
+GET /api/products  
+GET /api/products/:id  
+POST /api/auth/login  
+POST /api/orders
+
+---
+
+## What I Learned
+
+This project helped me practice:
+
+- Building REST APIs with Node.js and Express
+- Managing frontend state in React
+- Implementing authentication
+- Designing responsive UI
+- Structuring a full-stack application
+
+---
+
+## Author
+
+Name: PHAN NHU NHAT
+
+GitHub: https://github.com/NhatPhan2004
