@@ -9,6 +9,16 @@ Frontend: []
 
 Backend API: []
 
+## Features
+
+- User authentication (register & login)
+- Browse bicycle products
+- Product detail page
+- Add items to cart
+- Order checkout
+- Admin dashboard to manage products
+- Responsive design for mobile and desktop
+
 ## Screenshots
 
 Home Page  
@@ -26,36 +36,26 @@ Cart Page
 Dashboard Page
 ![Dashboard Page](./client/src/assets/screenshots/dashboard.jpg)
 
-## Features
-
-- User authentication (register & login)
-- Browse bicycle products
-- Product detail page
-- Add items to cart
-- Order checkout
-- Admin dashboard to manage products
-- Responsive design for mobile and desktop
-
 ---
 
 ## Tech Stack
 
-# Frontend
+### Frontend
 
 - React
 - SCSS(BEM)
 - Axios
 
-# Backend
+### Backend
 
 - Node.js
 - Express.js
 
-# Database
+### Database
 
 - MySQL
 
-# Tools
+### Tools
 
 - Git
 - Postman
@@ -71,14 +71,16 @@ Clone the repository: https://github.com/NhatPhan2004/bike-ecommerce.git
 
 ## Running the Project
 
-# Start backend server
+### Start backend server
 
 cd server
+
 node server.js
 
-# Start frontend
+### Start frontend
 
 cd client
+
 npm start
 
 ---
