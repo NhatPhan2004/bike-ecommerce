@@ -17,13 +17,17 @@
     "react-loading-skeleton": "^3.5.0",
     "react-router-dom": "^7.6.2",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.31.0",
     "sass": "^1.89.2",
+    "slick-carousel": "^1.8.1",
     "split-type": "^0.3.4",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
