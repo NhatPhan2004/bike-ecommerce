@@ -9,5 +9,8 @@
     "install-all": "npm install",
     "client": "npm start --workspace=client",
     "server": "npm start --workspace=server"
+  },
+  "dependencies": {
+    "@craco/craco": "^7.1.0"
   }
 }
