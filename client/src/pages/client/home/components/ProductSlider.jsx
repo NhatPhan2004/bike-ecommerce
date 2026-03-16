@@ -15,10 +15,7 @@ const ProductSlider = ({}) => {
   useEffect(() => {
     productService
       .getAll()
-      .then((res) => {
-        const data = Array.isArray(res.data) ? res.data : res.data?.data || [];
-        setProducts(data);
-      })
+      .then((res) => setProducts(res.data))
       .catch((err) => console.error("ProductSlider error:", err));
   }, []);
 
@@ -49,58 +46,30 @@ const ProductSlider = ({}) => {
           {products.map((item, index) => {
             const isActive = index === centerIndex % products.length;
             return (
-              <div className="product-slider">
-                <div className="product-slider__container">
-                  <h2 className="product-slider__title">DANH MỤC SẢN PHẨM</h2>
-                  <div className="product-slider__line">
-                    <span className="product-slider__icon">
-                      <GiCartwheel className="wheel-icon" />
-                    </span>
-                  </div>
+              <div
+                key={index}
+                className={`product-slider__slide ${
+                  isActive ? "product-slider__slide--active" : ""
+                }`}
+              >
+                <Link
+                  to={`/product/${item.bike_id}`}
+                  className="product-slider__link"
+                >
+                  <div className="product-slider__card" key={item.bike_id}>
+                    <img
+                      className="product-slider__card-image"
+                      src={`${apiRoutes.imageBase}${apiRoutes.image.product}${item.hinhanh}`}
+                      alt={item.tenxe}
+                    />
+                    <h4 className="product-slider__card-name">{item.tenxe}</h4>
+                    <div className="product-slider__card-rating">★★★★☆</div>
 
-                  {products.length > 0 ? (
-                    <Slider {...settings}>
-                      {products.map((item, index) => {
-                        const isActive =
-                          index === centerIndex % products.length;
-                        return (
-                          <div
-                            key={item.bike_id || index}
-                            className={`product-slider__slide ${
-                              isActive ? "product-slider__slide--active" : ""
-                            }`}
-                          >
-                            <Link
-                              to={`/product/${item.bike_id}`}
-                              className="product-slider__link"
-                            >
-                              <div className="product-slider__card">
-                                <img
-                                  className="product-slider__card-image"
-                                  src={`${apiRoutes.imageBase}${apiRoutes.image.product}${item.hinhanh}`}
-                                  alt={item.tenxe}
-                                />
-                                <h4 className="product-slider__card-name">
-                                  {item.tenxe}
-                                </h4>
-                                <div className="product-slider__card-rating">
-                                  ★★★★☆
-                                </div>
-                                <p className="product-slider__card-price">
-                                  {Number(item.giaban || 0).toLocaleString()} đ
-                                </p>
-                              </div>
-                            </Link>
-                          </div>
-                        );
-                      })}
-                    </Slider>
-                  ) : (
-                    <div className="loading-placeholder">
-                      Đang tải danh sách sản phẩm...
-                    </div>
-                  )}
-                </div>
+                    <p className="product-slider__card-price">
+                      {Number(item.giaban).toLocaleString()} đ
+                    </p>
+                  </div>
+                </Link>
               </div>
             );
           })}
