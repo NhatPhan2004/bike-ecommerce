@@ -5,7 +5,7 @@ import ProductCard from "./components/ProductCard";
 import productService from "@services/productService";
 import "@style/pages/products.scss";
 import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
+// import "react-loading-skeleton/dist/skeleton.css";
 import { useSearch } from "@contexts/SearchContext";
 
 const ProductList = () => {
