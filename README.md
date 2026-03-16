@@ -5,7 +5,7 @@ Built with React, Node.js, Express, and MySQL.
 
 ## Live Demo
 
-Frontend: [https://bike-ecommerce-frontend-client.vercel.app/],
+Frontend: [https://bike-ecommerce-fullstack-project.vercel.app/],
 [https://bike-ecommerce-frontend-client.vercel.app/admin/dashboard]
 
 Backend API: [https://server-production-1ab5.up.railway.app/api/products]
