@@ -55,6 +55,7 @@ const ProductList = () => {
             return price >= 10000000 && price <= 15000000;
           if (range === "15m-20m") return price > 15000000 && price <= 20000000;
           if (range === "above-20m") return price > 20000000;
+          return false;
         });
 
       return brandMatch && colorMatch && priceMatch;
