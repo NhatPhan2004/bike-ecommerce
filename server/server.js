@@ -22,7 +22,7 @@ const bestsellerRoutes = require("./routes/bestsellerRoutes");
 const allowedOrigins = [
   "http://localhost:3000",
   "http://localhost:3001",
-  "https://bike-ecommerce-frontend-client.vercel.app",
+  "https://bike-ecommerce-fullstack-project.vercel.app/",
 ];
 const PORT = process.env.PORT || 5000;
 app.use(
