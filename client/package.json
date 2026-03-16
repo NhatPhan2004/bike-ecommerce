@@ -20,9 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npx craco start",
-    "build": "npx craco build",
-    "test": "npx craco test"
+    "start": "react-scripts start",
+    "build": "react-scripts build"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",
